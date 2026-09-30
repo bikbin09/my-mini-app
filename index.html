@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    
+    <!-- Monetag In-Page Push Script (মনিটেগ থেকে কোড পেলে এখানে পেস্ট করবেন) -->
+
+</head>
+<body style="background-color: #0f172a; color: #ffffff; text-align: center; font-family: Arial, sans-serif; padding: 20px;">
+
+    <h1 style="color: #38bdf8;">Welcome to Mini App!</h1>
+    <p style="font-size: 16px; color: #cbd5e1;">Complete tasks below to earn daily rewards.</p>
+
+    <div style="margin-top: 40px;">
+        <!-- Direct Link Ad Button -->
+        <button onclick="openMonetagAd()" style="background-color: #22c55e; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+            🎁 Watch Ad & Claim Reward
+        </button>
+    </div>
+
+    <script>
+        function openMonetagAd() {
+            // আপনার Monetag Direct Link টি নিচে পেস্ট করবেন
+            var directLink = "YOUR_MONETAG_DIRECT_LINK_HERE";
+            
+            if(directLink !== "YOUR_MONETAG_DIRECT_LINK_HERE") {
+                window.open(directLink, "_blank");
+            } else {
+                alert("Ad link is not set up yet!");
+            }
+        }
+    </script>
+</body>
+</html>
