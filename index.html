@@ -21,16 +21,16 @@
     </div>
 
     <script>
-        function openMonetagAd() {
-            // আপনার Monetag Direct Link টি নিচে পেস্ট করবেন
-            var directLink = "https://omg10.com/4/11914927";
-            
-            if(directLink !== "https://omg10.com/4/11914927") {
-                window.open(directLink, "_blank");
-            } else {
-                alert("https://omg10.com/4/11914927");
-            }
-        }
-    </script>
+function openMonetagAd() {
+    var directLink = "https://omg10.com/4/11914927"; // আপনার Monetag Direct Link
+    
+    // সরাসরি বিজ্ঞাপন লিংক নতুন ট্যাবে খুলবে
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.openLink(directLink);
+    } else {
+        window.open(directLink, '_blank');
+    }
+}
+</script>
 </body>
 </html>
