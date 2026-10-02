@@ -20,36 +20,12 @@
       padding-bottom: 90px;
     }
 
-    /* --- 2-STEP AGE VERIFICATION OVERLAYS --- */
-    .age-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #090814;
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px;
-    }
-
-    .age-overlay-img {
-      max-width: 100%;
-      max-height: 90vh;
-      object-fit: contain;
-      cursor: pointer;
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
-    }
-
     /* --- TOP BANNER --- */
     .top-banner {
       background: #dc2626;
       color: #fff;
       text-align: center;
-      padding: 8px;
+      padding: 10px;
       font-size: 14px;
       font-weight: bold;
     }
@@ -153,9 +129,12 @@
     .card-media-wrapper {
       position: relative;
       width: 100%;
-      height: 300px;
-      background: #111827;
+      height: 250px;
+      background: #1e293b;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .card-media-wrapper img {
@@ -275,16 +254,6 @@
 </head>
 <body>
 
-  <!-- STEP 1 AGE OVERLAY -->
-  <div class="age-overlay" id="ageOverlay1">
-    <img src="https://picsum.photos/600/800?random=10" class="age-overlay-img" alt="Age Verification Step 1" onclick="nextAgeStep()">
-  </div>
-
-  <!-- STEP 2 AGE OVERLAY -->
-  <div class="age-overlay" id="ageOverlay2" style="display: none;">
-    <img src="https://picsum.photos/600/800?random=20" class="age-overlay-img" alt="Age Verification Step 2" onclick="finishAgeVerification()">
-  </div>
-
   <!-- TOP BANNER -->
   <div class="top-banner">
     সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে
@@ -322,7 +291,6 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#1</span>
-        <img src="https://picsum.photos/600/400?random=1" alt="Image 1">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -335,7 +303,6 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#2</span>
-        <img src="https://picsum.photos/600/400?random=2" alt="Image 2">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -348,7 +315,6 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#3</span>
-        <img src="https://picsum.photos/600/400?random=3" alt="Image 3">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -361,7 +327,6 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#4</span>
-        <img src="https://picsum.photos/600/400?random=4" alt="Image 4">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -374,33 +339,6 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#5</span>
-        <img src="https://picsum.photos/600/400?random=5" alt="Image 5">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-      </div>
-      <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
-      </div>
-    </div>
-
-    <!-- Card #6 -->
-    <div class="card">
-      <div class="card-media-wrapper">
-        <span class="card-tag">#6</span>
-        <img src="https://picsum.photos/600/400?random=6" alt="Image 6">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-      </div>
-      <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
-      </div>
-    </div>
-
-    <!-- Card #7 -->
-    <div class="card">
-      <div class="card-media-wrapper">
-        <span class="card-tag">#7</span>
-        <img src="https://picsum.photos/600/400?random=7" alt="Image 7">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -419,17 +357,5 @@
     </a>
   </div>
 
-  <script>
-    function nextAgeStep() {
-      document.getElementById('ageOverlay1').style.display = 'none';
-      document.getElementById('ageOverlay2').style.display = 'flex';
-      window.open('https://omg10.com/4/11914917', '_blank');
-    }
-
-    function finishAgeVerification() {
-      document.getElementById('ageOverlay2').style.display = 'none';
-      window.open('https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16', '_blank');
-    }
-  </script>
 </body>
 </html>
