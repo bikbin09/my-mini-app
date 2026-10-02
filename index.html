@@ -20,7 +20,7 @@
       padding-bottom: 90px;
     }
 
-    /* --- 18+ AGE VERIFICATION OVERLAY --- */
+    /* --- 2-STEP AGE VERIFICATION OVERLAYS --- */
     .age-overlay {
       position: fixed;
       top: 0;
@@ -30,73 +30,18 @@
       background: #090814;
       z-index: 99999;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
     }
 
-    .age-card {
-      width: 100%;
-      max-width: 360px;
-      background: rgba(15, 18, 37, 0.95);
-      border: 1.5px solid #e11d48;
-      border-radius: 28px;
-      padding: 24px 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(225, 29, 72, 0.25);
-    }
-
-    .age-icon-box {
-      width: 75px;
-      height: 75px;
-      border: 3px solid #f43f5e;
-      border-radius: 50%;
-      margin: 0 auto 15px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #f43f5e;
-      font-size: 26px;
-      font-weight: 900;
-      box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
-    }
-
-    .age-title {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      color: #f87171;
-      margin-bottom: 12px;
-    }
-
-    .age-text-box {
-      background: rgba(30, 27, 75, 0.5);
-      border: 1px solid rgba(244, 63, 94, 0.2);
-      border-radius: 16px;
-      padding: 12px;
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-
-    .age-btn {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #f43f5e, #e11d48);
-      border: none;
-      border-radius: 22px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 800;
+    .age-overlay-img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 4px 20px rgba(225, 29, 72, 0.5);
-      margin-top: 10px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
     }
 
     /* --- TOP BANNER --- */
@@ -189,7 +134,7 @@
       box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
     }
 
-    /* --- CARDS LIST --- */
+    /* --- VIDEO CARDS --- */
     .card-list {
       padding: 0 16px;
       display: flex;
@@ -207,7 +152,7 @@
     .card-media-wrapper {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 300px;
       background: #000;
       overflow: hidden;
     }
@@ -329,26 +274,14 @@
 </head>
 <body>
 
-  <!-- 18+ OVERLAY -->
-  <div class="age-overlay" id="ageOverlay">
-    <div class="age-card">
-      <div class="age-icon-box">18+</div>
-      <div class="age-title">VERIFY YOUR AGE</div>
-      
-      <div class="age-text-box">
-        আপনার বয়স ১৮ বছরের বেশি হলে নিচের ভেরিফিকেশন বাটন ক্লিক করুন 👇👇👇👇⚠️
-      </div>
-      
-      <div class="age-text-box">
-        📢 আপনার বয়স ১৮+ হতে হবে। প্রবেশের জন্য নিশ্চিত করুন।<br>
-        আপনার বয়স ১৮ বছরের বেশি হলে নিচের ভেরিফিকেশন বাটন ক্লিক করুন 👇👇👇👇.
-      </div>
+  <!-- STEP 1 AGE OVERLAY -->
+  <div class="age-overlay" id="ageOverlay1">
+    <img src="https://i.freeimage.host/ncWoxIV.png" class="age-overlay-img" alt="Age Verification Step 1" onclick="nextAgeStep()">
+  </div>
 
-      <button class="age-btn" onclick="verifyAge()">
-        <i class="fa-solid fa-square-check" style="font-size: 18px; color: #86efac;"></i>
-        I AM 18+ & ENTER
-      </button>
-    </div>
+  <!-- STEP 2 AGE OVERLAY -->
+  <div class="age-overlay" id="ageOverlay2" style="display: none;">
+    <img src="https://i.freeimage.host/ncWoILP.png" class="age-overlay-img" alt="Age Verification Step 2" onclick="finishAgeVerification()">
   </div>
 
   <!-- TOP BANNER -->
@@ -381,14 +314,14 @@
     </div>
   </div>
 
-  <!-- CARDS LIST -->
+  <!-- CARDS LIST WITH YOUR UPLOADED IMAGES (#1 TO #7) -->
   <div class="card-list">
 
     <!-- Card #1 -->
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#1</span>
-        <img src="https://i.imgur.com/Vn1yNLW.jpeg" alt="Image 1">
+        <img src="https://i.freeimage.host/ncWfE92.png" alt="Image 1">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -401,7 +334,7 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#2</span>
-        <img src="https://i.imgur.com/Vn1yNLW.jpeg" alt="Image 2">
+        <img src="https://i.freeimage.host/ncWKY7V.png" alt="Image 2">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -414,7 +347,7 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#3</span>
-        <img src="https://i.imgur.com/Vn1yNLW.jpeg" alt="Image 3">
+        <img src="https://i.freeimage.host/ncWfGuS.png" alt="Image 3">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -427,12 +360,51 @@
     <div class="card">
       <div class="card-media-wrapper">
         <span class="card-tag">#4</span>
-        <img src="https://i.imgur.com/Vn1yNLW.jpeg" alt="Image 4">
+        <img src="https://i.freeimage.host/ncWKRrx.png" alt="Image 4">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
         <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+      </div>
+    </div>
+
+    <!-- Card #5 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <span class="card-tag">#5</span>
+        <img src="https://i.freeimage.host/ncWKKg4.png" alt="Image 5">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+      </div>
+    </div>
+
+    <!-- Card #6 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <span class="card-tag">#6</span>
+        <img src="https://i.freeimage.host/ncWfNFj.png" alt="Image 6">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+      </div>
+    </div>
+
+    <!-- Card #7 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <span class="card-tag">#7</span>
+        <img src="https://i.freeimage.host/ncWKnm7.png" alt="Image 7">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
       </div>
     </div>
 
@@ -447,10 +419,18 @@
   </div>
 
   <script>
-    function verifyAge() {
-      document.getElementById('ageOverlay').style.display = 'none';
+    function nextAgeStep() {
+      // প্রথম ছবিতে ক্লিক করলে দ্বিতীয় ছবি আসবে এবং এড ওপেন হবে
+      document.getElementById('ageOverlay1').style.display = 'none';
+      document.getElementById('ageOverlay2').style.display = 'flex';
       window.open('https://omg10.com/4/11914917', '_blank');
+    }
+
+    function finishAgeVerification() {
+      // দ্বিতীয় ছবিতে ক্লিক করলে পপআপ পুরোপুরি বন্ধ হয়ে মূল পেইজ খুলে যাবে এবং এড ওপেন হবে
+      document.getElementById('ageOverlay2').style.display = 'none';
+      window.open('https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16', '_blank');
     }
   </script>
 </body>
-</html>
+                                                                                      </html>
