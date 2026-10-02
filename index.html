@@ -1,40 +1,690 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
+<html lang="bn"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjExNjRiNzdiNDMzZDdhMDAyMWI4NjE4YjhjYTU3ZTMyZGI5MWUxMTMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwOTE4MTcyOTE2OTA2NjI3ODM2OSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2Y4OGJkOTBkNjQ5ZjU0NTlfaW5kZXguaHRtbC01MDAifSwiZXhwIjoxNzkwOTQwNjE5LCJpYXQiOjE3OTA5MzcwMTksImFsZyI6IlJTMjU2In0.eNrbvqeUA03tGd8774qtV6JrR-CTg5GCI4E3Ach6xxxHwrCPKemNxXf0NMAePemQ4pSAujH1F7FMON0uYzmZfeaxdGwVl5hMBHBnbWX3FOGADPCUnYDbrtfcPVWqdq1CZJXvLyBubIv76Caveeaa989Kfz3jXiRKJ5duLatx9QJusDTd7fWMnsBGTXL16zUAMTEmVzU696Bu4c847SARTiRT1JMiRJe8AAIKE5TR2j0LqtPcIdMH4V8uV6AL-_LMZzvqf5HLQop2nVbtfazZwtKDHQJQHn1R6HBihjfi6xFw9ZatPrUaksSwaaoSYoXlL1JXm77SbGBU0d20hXJD7w","c_f88bd90d649f5459_index.html-500")</script><script data-bard-client-injected="true">
+  document.addEventListener('input', (event) => {
+    if (event.target && (event.target.isContentEditable || event.target.hasAttribute('contenteditable'))) {
+      const clonedDoc = document.cloneNode(true);
+      const injectedScripts = clonedDoc.querySelectorAll('[data-bard-client-injected="true"]');
+      injectedScripts.forEach(el => el.remove());
+      window.parent.postMessage({
+        type: 'inlineEdit',
+        html: '<!DOCTYPE html>\n' + clonedDoc.documentElement.outerHTML
+      }, '*');
+    }
+  });
+</script><script data-bard-client-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const SCROLL_KEYS = new Set([
+    'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+    ' ', 'Spacebar', 'PageUp', 'PageDown', 'Home', 'End',
+  ]);
+  const HORIZONTAL_KEYS = new Set(['ArrowLeft', 'ArrowRight']);
+
+  function isTextEntryTarget(target) {
+    if (!target) return false;
+    const tagName = target.tagName;
+    return tagName === 'INPUT' || tagName === 'TEXTAREA' ||
+        tagName === 'SELECT' || target.isContentEditable === true;
+  }
+
+  // An element absorbs the key only if it both overflows on the axis being
+  // scrolled and is configured to scroll on that axis. The cheap dimension
+  // test runs first because getComputedStyle forces a style recalc, and this
+  // runs on every keypress. Each axis is read from its own longhand: the
+  // 'overflow' shorthand serializes as two values when the axes differ, which
+  // is the common 'overflow-x: hidden; overflow-y: auto' pane.
+  function canScroll(node, horizontal) {
+    const overflows = horizontal ? node.scrollWidth > node.clientWidth
+                                 : node.scrollHeight > node.clientHeight;
+    if (!overflows) return false;
+    const style = window.getComputedStyle(node);
+    const overflow = horizontal ? style.overflowX : style.overflowY;
+    return overflow === 'auto' || overflow === 'scroll';
+  }
+
+  // Walks up from the event target so nested scrollers keep their behavior.
+  // <body> is included because pages that pin the root height make it the
+  // scroll container.
+  function hasScrollableAncestor(target, horizontal) {
+    let node = target;
+    while (node && node !== document.documentElement) {
+      if (canScroll(node, horizontal)) return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+
+  function rootCanScroll(horizontal) {
+    const scroller = document.scrollingElement || document.documentElement;
+    if (!scroller) return false;
+    // Tolerate a pixel of rounding so subpixel layouts do not look scrollable.
+    return horizontal ? scroller.scrollWidth > window.innerWidth + 1
+                      : scroller.scrollHeight > window.innerHeight + 1;
+  }
+
+  window.addEventListener('keydown', function(event) {
+    if (!SCROLL_KEYS.has(event.key)) return;
+    if (event.defaultPrevented) return;
+    // Alt and Meta turn arrows into browser history navigation, and Ctrl is
+    // reserved for shortcuts, so none of them are scroll intent.
+    if (event.altKey || event.metaKey || event.ctrlKey) return;
+
+    const target = event.target;
+    if (isTextEntryTarget(target)) return;
+
+    // Anything that can still absorb the scroll gets to keep it.
+    const horizontal = HORIZONTAL_KEYS.has(event.key);
+    if (rootCanScroll(horizontal)) return;
+    if (hasScrollableAncestor(target, horizontal)) return;
+
+    event.preventDefault();
+  }, {capture: true, passive: false});
+})();</script><script data-bard-client-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-client-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-client-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.j=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.h=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.i="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-client-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-client-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Video ViralX Zone</title>
+  
+  <!-- FontAwesome Icons for UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      user-select: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      user-select: text; /* Enabled text selection for easy copying */
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       background-color: #030712;
       color: #ffffff;
-      padding-bottom: 90px;
+      padding-bottom: 100px;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* --- TOP BANNER --- */
-    .top-banner {
-      background: #dc2626;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    /* --- SEARCH BAR --- */
-    .search-box {
-      padding: 12px 16px;
+    /* Code Copy Quick Action Bar */
+    .code-copy-bar {
+      background: #1e1b4b;
+      border-bottom: 1px solid #4338ca;
+      padding: 8px 16px;
       display: flex;
-      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .code-copy-bar span {
+      font-size: 13px;
+      color: #a5f3fc;
+      font-weight: 600;
+    }
+
+    .copy-btn-top {
+      background: #4f46e5;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+    }
+
+    .copy-btn-top:active {
+      transform: scale(0.95);
+    }
+
+    /* Top Red Alert Banner */
+    .top-banner {
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+    }
+
+    /* Search Header Wrapper */
+    .search-box {
+      padding: 14px 16px 8px 16px;
+      display: flex;
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .search-input-wrap {
@@ -42,7 +692,7 @@
       background: #0f172a;
       border: 1px solid #1e293b;
       border-radius: 24px;
-      padding: 8px 16px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -52,7 +702,7 @@
       background: transparent;
       border: none;
       outline: none;
-      color: #fff;
+      color: #ffffff;
       font-size: 14px;
       width: 100%;
     }
@@ -62,36 +712,40 @@
     }
 
     .search-btn {
-      background: #2563eb;
-      color: #fff;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
       border: none;
       border-radius: 20px;
-      padding: 8px 18px;
+      padding: 8px 20px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
-    /* --- PAGINATION GRID --- */
+    /* Pagination Oval Container */
     .pag-oval-container {
-      margin: 8px 16px 16px 16px;
-      padding: 12px 8px;
+      margin: 10px 16px 20px 16px;
+      padding: 14px 10px;
       border: 1px solid #1e293b;
       border-radius: 35px;
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .pag-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 8px;
-      row-gap: 10px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
       justify-items: center;
     }
 
     .pag-circle {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       background: #020617;
       border: 1px solid #1e293b;
@@ -100,37 +754,40 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       text-decoration: none;
     }
 
     .pag-circle.active {
-      background: #f97316;
+      background: linear-gradient(135deg, #f97316, #ea580c);
       border-color: #f97316;
       color: #ffffff;
-      box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
+      box-shadow: 0 0 14px rgba(249, 115, 22, 0.6);
     }
 
-    /* --- VIDEO CARDS --- */
+    /* Video Cards Grid/List */
     .card-list {
       padding: 0 16px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .card {
       background: #090d16;
       border: 1px solid #1e293b;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
     .card-media-wrapper {
       position: relative;
       width: 100%;
-      height: 250px;
-      background: #1e293b;
+      height: 280px;
+      background: #0f172a;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -141,65 +798,85 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 20%;
       display: block;
+    }
+
+    .card-overlay-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(9,13,22,0.8) 100%);
+      pointer-events: none;
     }
 
     .card-tag {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #f97316;
-      color: #fff;
-      font-size: 12px;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      color: #ffffff;
+      font-size: 13px;
       font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 4px 12px;
+      border-radius: 8px;
       z-index: 3;
+      box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
     }
 
+    /* Play Button Overlay */
     .play-trigger {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: #f43f5e;
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-size: 22px;
-      box-shadow: 0 0 20px rgba(244, 63, 94, 0.8);
+      color: #ffffff;
+      font-size: 24px;
+      box-shadow: 0 0 25px rgba(244, 63, 94, 0.8), 0 0 0 6px rgba(244, 63, 94, 0.25);
       z-index: 3;
       text-decoration: none;
-      padding-left: 3px;
+      padding-left: 4px;
+      transition: transform 0.2s;
+    }
+
+    .play-trigger:active {
+      transform: translate(-50%, -50%) scale(0.92);
     }
 
     .card-btn-bar {
       display: flex;
-      padding: 12px;
-      gap: 10px;
+      padding: 14px;
+      gap: 12px;
       background: #0f172a;
+      border-top: 1px solid #1e293b;
     }
 
     .c-btn {
       flex: 1;
-      padding: 12px;
-      border-radius: 20px;
-      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 15px;
       font-weight: 700;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .c-btn-play {
-      background: #2563eb;
-      color: #fff;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     .c-btn-down {
@@ -208,64 +885,96 @@
       border: 1px solid #334155;
     }
 
-    /* --- FLOATING TELEGRAM BUTTON --- */
+    /* Floating Telegram Button */
     .floating-join-wrap {
       position: fixed;
-      bottom: 16px;
+      bottom: 18px;
       left: 50%;
       transform: translateX(-50%);
       width: calc(100% - 32px);
-      max-width: 380px;
+      max-width: 420px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      z-index: 9999;
+      z-index: 999;
     }
 
     .join-pill-btn {
       width: 100%;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid #0284c7;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1.5px solid #0284c7;
       border-radius: 30px;
-      padding: 12px 18px;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      color: #fff;
+      gap: 12px;
+      color: #ffffff;
       text-decoration: none;
       font-weight: 800;
-      font-size: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(8px);
+      font-size: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(2, 132, 199, 0.3);
+      backdrop-filter: blur(12px);
     }
 
     .tg-circle {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       background: #0ea5e9;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10b981;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 20px;
       font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
   </style>
 </head>
 <body>
 
+  <!-- TOP CODE COPY TOOLBAR -->
+  <div class="code-copy-bar">
+    <span><i class="fa-solid fa-code"></i> Video ViralX Zone App</span>
+    <button class="copy-btn-top" onclick="copyFullCode()">
+      <i class="fa-solid fa-copy"></i> কোড কপি করুন
+    </button>
+  </div>
+
   <!-- TOP BANNER -->
   <div class="top-banner">
-    সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে
+    <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে
   </div>
 
   <!-- SEARCH HEADER -->
   <div class="search-box">
     <div class="search-input-wrap">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" placeholder="ভিডিও সার্চ করুন...">
+      <input type="text" id="searchInput" placeholder="ভিডিও সার্চ করুন...">
     </div>
-    <button class="search-btn">সার্চ</button>
+    <button class="search-btn" onclick="handleSearch()">সার্চ</button>
   </div>
 
   <!-- PAGINATION GRID -->
@@ -284,66 +993,146 @@
     </div>
   </div>
 
-  <!-- CARDS LIST -->
-  <div class="card-list">
+  <!-- CARDS LIST WITH HOT MODEL PHOTOS -->
+  <div class="card-list" id="cardList">
 
     <!-- Card #1 -->
     <div class="card">
       <div class="card-media-wrapper">
-        <span class="card-tag">#1</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #1">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#1 VIRAL HOT</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
       </div>
     </div>
 
     <!-- Card #2 -->
     <div class="card">
       <div class="card-media-wrapper">
-        <span class="card-tag">#2</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #2">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#2 TRENDING</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
       </div>
     </div>
 
     <!-- Card #3 -->
     <div class="card">
       <div class="card-media-wrapper">
-        <span class="card-tag">#3</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #3">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#3 POPULAR</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
       </div>
     </div>
 
     <!-- Card #4 -->
     <div class="card">
       <div class="card-media-wrapper">
-        <span class="card-tag">#4</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #4">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#4 EXCLUSIVE</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
       </div>
     </div>
 
     <!-- Card #5 -->
     <div class="card">
       <div class="card-media-wrapper">
-        <span class="card-tag">#5</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #5">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#5 TOP VIRAL</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
+
+    <!-- Card #6 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #6">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#6 NEW</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
+
+    <!-- Card #7 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Hot Model #7">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#7 SPECIAL</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
       </div>
     </div>
 
@@ -353,9 +1142,62 @@
   <div class="floating-join-wrap">
     <a href="https://omg10.com/4/11914917" target="_blank" class="join-pill-btn">
       <div class="tg-circle"><i class="fa-paper-plane fa-solid"></i></div>
-      <span style="color: #facc15;">✨</span> জয়েন করুন
+      <span>টেলিগ্রাম চ্যানেলে জয়েন করুন <span style="color: #facc15;">✨</span></span>
     </a>
   </div>
 
-</body>
-</html>
+  <!-- Toast Notice -->
+  <div class="toast" id="toast">কপি সম্পন্ন হয়েছে!</div>
+
+  <script>
+    function handleSearch() {
+      window.open('https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16', '_blank');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
+
+    function copyFullCode() {
+      const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullHTML).then(() => {
+          showToast('কোড কপি করা হয়েছে!');
+        }).catch(() => {
+          fallbackCopy(fullHTML);
+        });
+      } else {
+        fallbackCopy(fullHTML);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast('কোড কপি করা হয়েছে!');
+      } catch (err) {
+        showToast('কপি করতে ব্যর্থ হয়েছে');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // Telegram Mini App Ready Call
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+  </script>
+
+</body></html>
