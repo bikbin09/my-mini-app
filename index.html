@@ -1,627 +1,591 @@
 <!DOCTYPE html>
-<html lang="bn">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#070b1b">
-<title>Video ViralX Zone</title>
-<meta name="description" content="Video ViralX Zone — browse video collections, search videos, and join our Telegram channel.">
+<html lang="bn" class="androidSkybridge mobileSkybridge"><head><style>@layer sandbox-defaults{html,body,#root{margin:0;padding:0}}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Video ViralX Zone</title>
 
-<style>
-:root {
-  --bg:#050817;
-  --panel:#0b1227;
-  --line:#1b2b4d;
-  --text:#f5f7ff;
-  --muted:#a8b3ca;
-  --blue:#2365ee;
-  --violet:#4d39db;
-  --pink:#e80d4c;
-  --gold:#ff9d16;
-}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-* { box-sizing:border-box; }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      user-select: text;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-body {
-  margin:0;
-  background:radial-gradient(ellipse at top,#101d43 0,#050817 48%);
-  color:var(--text);
-  font-family:system-ui,-apple-system,"Noto Sans Bengali",Arial,sans-serif;
-}
+    body {
+      background-color: #030712;
+      color: #ffffff;
+      padding-bottom: 100px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-header {
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:#080d20f2;
-  border-bottom:1px solid #223354;
-  backdrop-filter:blur(12px);
-}
+    .code-copy-bar {
+      background: #1e1b4b;
+      border-bottom: 1px solid #4338ca;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.top {
-  max-width:900px;
-  margin:auto;
-  padding:16px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
+    .code-copy-bar span {
+      font-size: 13px;
+      color: #a5f3fc;
+      font-weight: 600;
+    }
 
-.brand {
-  font-size:clamp(20px,5vw,28px);
-  font-weight:800;
-  letter-spacing:.2px;
-}
+    .copy-btn-top {
+      background: #4f46e5;
+      color: #ffffff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(79, 70, 229, 0.4);
+    }
 
-.brand span { color:#63a5ff; }
+    .copy-btn-top:active {
+      transform: scale(0.95);
+    }
 
-.pill {
-  border:1px solid #34486c;
-  background:#17223a;
-  color:#e7edff;
-  border-radius:999px;
-  padding:9px 14px;
-  font-weight:700;
-}
+    .top-banner {
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 2px 10px rgba(220, 38, 38, 0.3);
+    }
 
-main {
-  max-width:900px;
-  margin:auto;
-  padding:22px 14px 110px;
-}
+    .search-box {
+      padding: 14px 16px 8px;
+      display: flex;
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-.hero {
-  padding:24px 18px;
-  border:1px solid #26395f;
-  border-radius:22px;
-  background:linear-gradient(130deg,#111d3c,#0a1025 70%);
-  text-align:center;
-  margin-bottom:20px;
-}
+    .search-input-wrap {
+      flex: 1;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.hero h1 {
-  margin:0 0 8px;
-  font-size:clamp(24px,6vw,36px);
-}
+    .search-input-wrap input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 14px;
+      width: 100%;
+    }
 
-.hero p {
-  color:var(--muted);
-  margin:0;
-}
+    .search-input-wrap i {
+      color: #64748b;
+    }
 
-.searchrow {
-  display:flex;
-  gap:10px;
-  margin:20px 0 16px;
-}
+    .search-btn {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
 
-.searchrow input {
-  min-width:0;
-  flex:1;
-  background:#101a31;
-  border:1px solid #355184;
-  border-radius:15px;
-  padding:15px;
-  color:white;
-  font-size:16px;
-  outline:none;
-}
+    .pag-oval-container {
+      margin: 10px 16px 20px;
+      padding: 14px 10px;
+      border: 1px solid #1e293b;
+      border-radius: 35px;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(10px);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-.searchrow button,
-.primary {
-  border:0;
-  border-radius:14px;
-  padding:0 20px;
-  color:white;
-  font-weight:800;
-  background:linear-gradient(110deg,var(--blue),var(--violet));
-  cursor:pointer;
-}
+    .pag-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      justify-items: center;
+    }
 
-.categories {
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin:15px 0 24px;
-}
+    .pag-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #020617;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+    }
 
-.cat {
-  background:#111c34;
-  border:1px solid #34486b;
-  color:#dbe6ff;
-  border-radius:999px;
-  padding:10px 15px;
-  cursor:pointer;
-}
+    .pag-circle.active {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      border-color: #f97316;
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(249, 115, 22, 0.6);
+    }
 
-.cat.active {
-  background:linear-gradient(110deg,#f07808,#e84a12);
-  border-color:#ffb04d;
-  color:#fff;
-  box-shadow:0 0 18px #f0780840;
-}
+    .card-list {
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
 
-.section-title {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:22px 4px 14px;
-}
+    .card {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
 
-.section-title h2 {
-  font-size:21px;
-  margin:0;
-}
+    .card-media-wrapper {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background: #0f172a;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.section-title small { color:var(--muted); }
+    .card-media-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
+    .card-overlay-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(9,13,22,0.8) 100%);
+      pointer-events: none;
+    }
 
-.card {
-  overflow:hidden;
-  border:1px solid #1d3155;
-  background:#080f24;
-  border-radius:22px;
-  box-shadow:0 12px 28px #0005;
-}
+    .card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 8px;
+      z-index: 3;
+      box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
+    }
 
-.thumb {
-  height:clamp(190px,45vw,330px);
-  position:relative;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-  background:linear-gradient(135deg,#123a67,#45206a 55%,#10203b);
-  background-size:cover;
-  background-position:center;
-}
+    .play-trigger {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 24px;
+      box-shadow: 0 0 25px rgba(244, 63, 94, 0.8), 0 0 0 6px rgba(244, 63, 94, 0.25);
+      z-index: 3;
+      text-decoration: none;
+      padding-left: 4px;
+      transition: transform 0.2s;
+    }
 
-.thumb:before {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(0deg,#05081766,transparent 60%);
-}
+    .play-trigger:active {
+      transform: translate(-50%, -50%) scale(0.92);
+    }
 
-.number {
-  position:absolute;
-  left:12px;
-  top:12px;
-  background:#ed4b0b;
-  border:1px solid #ffb65d;
-  border-radius:999px;
-  padding:5px 13px;
-  font-weight:800;
-  z-index:1;
-}
+    .card-btn-bar {
+      display: flex;
+      padding: 14px;
+      gap: 12px;
+      background: #0f172a;
+      border-top: 1px solid #1e293b;
+    }
 
-.play {
-  position:relative;
-  z-index:1;
-  width:82px;
-  height:82px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#e70d4c;
-  border:7px solid #f84b78aa;
-  box-shadow:0 8px 25px #0006;
-  color:#fff;
-  font-size:31px;
-  padding-left:5px;
-  cursor:pointer;
-}
+    .c-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-.cardbody { padding:14px; }
+    .c-btn-play {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
 
-.cardbody h3 {
-  font-size:16px;
-  margin:0 0 12px;
-  min-height:24px;
-}
+    .c-btn-down {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
 
-.actions {
-  display:flex;
-  gap:10px;
-}
+    .floating-join-wrap {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 999;
+    }
 
-.actions a {
-  flex:1;
-  text-align:center;
-  text-decoration:none;
-  border-radius:999px;
-  padding:13px 8px;
-  font-weight:800;
-  color:#fff;
-  font-size:14px;
-}
+    .join-pill-btn {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1.5px solid #0284c7;
+      border-radius: 30px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(2, 132, 199, 0.3);
+      backdrop-filter: blur(12px);
+    }
 
-.watch {
-  background:linear-gradient(110deg,#2365ee,#4d39db);
-}
+    .tg-circle {
+      width: 32px;
+      height: 32px;
+      background: #0ea5e9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ffffff;
+    }
 
-.download {
-  background:#1b2941;
-  border:1px solid #30415f;
-}
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #10b981;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999;
+    }
 
-.sponsor {
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin:26px 0;
-}
-
-.sponsor a {
-  color:#fff;
-  text-decoration:none;
-  background:#17243b;
-  border:1px solid #344c70;
-  border-radius:999px;
-  padding:12px 16px;
-  font-weight:700;
-}
-
-.pagination {
-  display:flex;
-  gap:9px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin:28px 0;
-}
-
-.page {
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:1px solid #9b5a29;
-  background:#111b31;
-  color:#dbe6ff;
-  font-weight:800;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.page.active {
-  background:#f07808;
-  color:white;
-  box-shadow:0 0 18px #f0780860;
-}
-
-.telegram {
-  position:fixed;
-  z-index:20;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(340px,88vw);
-  text-align:center;
-  text-decoration:none;
-  color:#fff;
-  font-size:20px;
-  font-weight:800;
-  padding:18px 22px;
-  border-radius:999px;
-  border:1px solid #287edb;
-  background:linear-gradient(110deg,#062b53,#061b35);
-  box-shadow:0 0 28px #138cff55;
-}
-
-footer {
-  text-align:center;
-  color:#8290aa;
-  padding:25px 10px;
-  font-size:13px;
-}
-
-.empty {
-  text-align:center;
-  color:var(--muted);
-  padding:35px;
-  display:none;
-}
-
-.age {
-  position:fixed;
-  inset:0;
-  background:#02040deF;
-  z-index:50;
-  display:grid;
-  place-items:center;
-  padding:20px;
-}
-
-.agebox {
-  max-width:390px;
-  text-align:center;
-  background:#101a31;
-  border:1px solid #40547a;
-  border-radius:22px;
-  padding:25px;
-}
-
-.agebox h2 { margin:0 0 10px; }
-.agebox p { color:#b9c4d9; }
-
-.agebox button {
-  padding:13px 22px;
-  border:0;
-  border-radius:999px;
-  background:linear-gradient(110deg,#f07808,#e84a12);
-  color:white;
-  font-weight:800;
-  margin:6px;
-  cursor:pointer;
-}
-
-@media(max-width:560px) {
-  .grid { grid-template-columns:1fr; }
-  .thumb { height:290px; }
-  .top { padding:14px; }
-  .hero { padding:20px 14px; }
-  .searchrow button { padding:0 15px; }
-}
-</style>
-</head>
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+<style>html, body, #root {
+      margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;
+      
+    }
+html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
 
 <body>
 
-<header>
-  <div class="top">
-    <div class="brand">Video <span>ViralX</span> Zone</div>
-    <div class="pill">▶ Video Hub</div>
+  <div class="code-copy-bar">
+    <span><i class="fa-solid fa-code"></i> Video ViralX Zone App</span>
+    <button class="copy-btn-top" onclick="copyFullCode()">
+      <i class="fa-solid fa-copy"></i> কোড কপি করুন
+    </button>
   </div>
-</header>
 
-<main>
-
-<section class="hero">
-  <h1>Video ViralX Zone</h1>
-  <p>ভিডিও কালেকশন দেখুন, সার্চ করুন এবং নতুন আপডেট পেতে Telegram-এ যুক্ত থাকুন।</p>
-</section>
-
-<div class="searchrow">
-  <input id="search" type="search" placeholder="🔎 ভিডিও খুঁজুন..." aria-label="ভিডিও খুঁজুন">
-  <button id="searchBtn">সার্চ</button>
-</div>
-
-<div class="categories" aria-label="ক্যাটাগরি">
-  <button class="cat active" data-cat="18+">18+ Collection</button>
-  <button class="cat" data-cat="All">সব ভিডিও</button>
-  <button class="cat" data-cat="Trending">Trending</button>
-  <button class="cat" data-cat="Natok">Bangla Natok</button>
-</div>
-
-<div class="section-title">
-  <h2 id="sectionHeading">ভিডিও কালেকশন</h2>
-  <small id="count"></small>
-</div>
-
-<div class="grid" id="grid"></div>
-<div class="empty" id="empty">কোনো ভিডিও পাওয়া যায়নি।</div>
-<div class="pagination" id="pagination"></div>
-
-<div class="sponsor">
-  <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer">✨ Sponsored Link</a>
-  <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer">Visit Sponsor</a>
-</div>
-
-<footer>
-  © <span id="year"></span> Video ViralX Zone. Please use authorized sources and respect creators’ rights.
-</footer>
-
-</main>
-
-<a class="telegram" href="https://t.me/ViralMovieHubBot" target="_blank" rel="noopener noreferrer">✈️ Telegram-এ যুক্ত হন</a>
-
-<div class="age" id="ageGate">
-  <div class="agebox">
-    <h2>18+ বয়স নিশ্চিত করুন</h2>
-    <p>এই কালেকশনটি প্রাপ্তবয়স্ক দর্শকদের জন্য চিহ্নিত। আপনি কি ১৮ বছর বা তার বেশি বয়সী?</p>
-    <button id="yesAge">হ্যাঁ, প্রবেশ করুন</button>
-    <button id="noAge">না</button>
+  <div class="top-banner">
+    <i class="fa-solid fa-bolt" style="margin-right: 6px;"></i> সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে
   </div>
-</div>
 
-<script>
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="ভিডিও সার্চ করুন...">
+    </div>
+    <button class="search-btn" onclick="handleSearch()">সার্চ</button>
+  </div>
 
-/*
-ভিডিও যোগ করার নিয়ম:
+  <div class="pag-oval-container">
+    <div class="pag-grid">
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle active">1</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">2</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">3</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">4</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">5</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">6</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">7</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">8</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">9</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">10</a>
+    </div>
+  </div>
 
-thumbnail = ছবির সরাসরি URL
-videoUrl = ভিডিও দেখার URL
-downloadUrl = ডাউনলোড URL
+  <div class="card-list" id="cardList">
 
-নিজের অনুমোদিত ভিডিওর লিংক ব্যবহার করবে।
-*/
+    <!-- Card #1 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNRDnn.md.jpg" alt="Hot Model #1">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#1 VIRAL HOT</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-const videos = [
-  {id:1,title:"Video Collection #1",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:2,title:"Video Collection #2",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:3,title:"Video Collection #3",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:4,title:"Video Collection #4",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:5,title:"Video Collection #5",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:6,title:"Video Collection #6",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:7,title:"Video Collection #7",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:8,title:"Video Collection #8",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:9,title:"Video Collection #9",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""},
-  {id:10,title:"Video Collection #10",category:"18+",thumbnail:"",videoUrl:"",downloadUrl:""}
-];
+    <!-- Card #2 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNRQjt.md.jpg" alt="Hot Model #2">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#2 TRENDING</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-const perPage = 4;
-let page = 1;
-let activeCat = "18+";
+    <!-- Card #3 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncN5eS4.md.jpg" alt="Hot Model #3">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#3 POPULAR</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-const grid = document.getElementById("grid");
-const pagination = document.getElementById("pagination");
-const search = document.getElementById("search");
+    <!-- Card #4 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNRbGs.md.jpg" alt="Hot Model #4">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#4 EXCLUSIVE</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-function filtered() {
-  const q = search.value.trim().toLowerCase();
+    <!-- Card #5 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNR6aR.md.jpg" alt="Hot Model #5">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#5 TOP VIRAL</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-  return videos.filter(v =>
-    (activeCat === "All" || v.category === activeCat || activeCat === "Trending") &&
-    (!q || (v.title + " " + v.category + " " + v.id).toLowerCase().includes(q))
-  );
-}
+    <!-- Card #6 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNRPvp.md.jpg" alt="Hot Model #6">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#6 NEW</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-function safeUrl(url) {
-  return /^https?:\/\//i.test(url || "") ? url : "";
-}
+    <!-- Card #7 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <img src="https://iili.io/ncNRLuI.md.jpg" alt="Hot Model #7">
+        <div class="card-overlay-gradient"></div>
+        <span class="card-tag">#7 SPECIAL</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+          <i class="fa-solid fa-play"></i> প্লে করুন
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
 
-function render() {
-  const items = filtered();
-  const pages = Math.max(1, Math.ceil(items.length / perPage));
+  </div>
 
-  page = Math.min(page, pages);
+  <div class="floating-join-wrap">
+    <a href="https://omg10.com/4/11914917" target="_blank" class="join-pill-btn">
+      <div class="tg-circle"><i class="fa-paper-plane fa-solid"></i></div>
+      <span>টেলিগ্রাম চ্যানেলে জয়েন করুন <span style="color: #facc15;">✨</span></span>
+    </a>
+  </div>
 
-  document.getElementById("count").textContent = items.length + "টি ভিডিও";
+  <div class="toast" id="toast">কপি সম্পন্ন হয়েছে!</div>
 
-  document.getElementById("sectionHeading").textContent =
-    activeCat === "18+" ? "18+ Collection" : "ভিডিও কালেকশন";
-
-  grid.innerHTML = "";
-
-  document.getElementById("empty").style.display =
-    items.length ? "none" : "block";
-
-  items.slice((page - 1) * perPage, page * perPage).forEach(v => {
-
-    const card = document.createElement("article");
-    card.className = "card";
-
-    const thumb = document.createElement("div");
-    thumb.className = "thumb";
-
-    if (safeUrl(v.thumbnail)) {
-      thumb.style.backgroundImage =
-        `linear-gradient(#05081722,#05081722),url("${v.thumbnail}")`;
+  <script>
+    function handleSearch() {
+      window.open('https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16', '_blank');
     }
 
-    const num = document.createElement("span");
-    num.className = "number";
-    num.textContent = "#" + v.id;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }
 
-    const play = document.createElement("button");
-    play.className = "play";
-    play.type = "button";
-    play.setAttribute("aria-label", "ভিডিও দেখুন");
-    play.textContent = "▶";
+    function copyFullCode() {
+      const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
 
-    play.addEventListener("click", () => {
-      const u = safeUrl(v.videoUrl);
-
-      if (u) {
-        window.open(u, "_blank", "noopener");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullHTML).then(() => {
+          showToast('কোড কপি করা হয়েছে!');
+        }).catch(() => {
+          fallbackCopy(fullHTML);
+        });
       } else {
-        alert("এই ভিডিওর videoUrl এখনো যোগ করা হয়নি। কোডে videoUrl বসান।");
+        fallbackCopy(fullHTML);
       }
-    });
+    }
 
-    thumb.append(num, play);
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
 
-    const body = document.createElement("div");
-    body.className = "cardbody";
-
-    const title = document.createElement("h3");
-    title.textContent = v.title;
-
-    const actions = document.createElement("div");
-    actions.className = "actions";
-
-    const watch = document.createElement("a");
-    watch.className = "watch";
-    watch.textContent = "▶ দেখুন";
-    watch.href = safeUrl(v.videoUrl) || "#";
-
-    watch.addEventListener("click", e => {
-      if (!safeUrl(v.videoUrl)) {
-        e.preventDefault();
-        alert("এই ভিডিওর videoUrl এখনো যোগ করা হয়নি। কোডে videoUrl বসান।");
-      } else {
-        e.preventDefault();
-        window.open(v.videoUrl, "_blank", "noopener");
+      try {
+        document.execCommand('copy');
+        showToast('কোড কপি করা হয়েছে!');
+      } catch (err) {
+        showToast('কপি করতে ব্যর্থ হয়েছে');
       }
-    });
 
-    const down = document.createElement("a");
-    down.className = "download";
-    down.textContent = "⬇ ডাউনলোড";
-    down.href = safeUrl(v.downloadUrl) || "#";
+      document.body.removeChild(textarea);
+    }
 
-    down.addEventListener("click", e => {
-      if (!safeUrl(v.downloadUrl)) {
-        e.preventDefault();
-        alert("এই ভিডিওর downloadUrl এখনো যোগ করা হয়নি।");
-      } else {
-        e.preventDefault();
-        window.open(v.downloadUrl, "_blank", "noopener");
-      }
-    });
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+    }
+  </script>
 
-    actions.append(watch, down);
-    body.append(title, actions);
-    card.append(thumb, body);
-    grid.append(card);
-  });
 
-  pagination.innerHTML = "";
-
-  for (let n = 1; n <= pages; n++) {
-    const b = document.createElement("button");
-
-    b.className = "page" + (n === page ? " active" : "");
-    b.textContent = n;
-
-    b.addEventListener("click", () => {
-      page = n;
-      render();
-      window.scrollTo({top:0,behavior:"smooth"});
-    });
-
-    pagination.append(b);
-  }
-}
-
-document.querySelectorAll(".cat").forEach(b => {
-  b.addEventListener("click", () => {
-    document.querySelector(".cat.active")?.classList.remove("active");
-    b.classList.add("active");
-    activeCat = b.dataset.cat;
-    page = 1;
-    render();
-  });
-});
-
-document.getElementById("searchBtn").addEventListener("click", () => {
-  page = 1;
-  render();
-});
-
-search.addEventListener("input", () => {
-  page = 1;
-  render();
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-document.getElementById("yesAge").addEventListener("click", () => {
-  document.getElementById("ageGate").remove();
-});
-
-document.getElementById("noAge").addEventListener("click", () => {
-  document.getElementById("ageGate").innerHTML =
-    '<div class="agebox"><h2>প্রবেশ করা যাবে না</h2><p>এই পেজটি দেখার জন্য আপনার বয়স ১৮ বছর বা তার বেশি হতে হবে।</p></div>';
-});
-
-render();
-
-</script>
-</body>
-</html>
+</body></html>
