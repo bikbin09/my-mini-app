@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="bn" class="androidSkybridge mobileSkybridge"><head><style>@layer sandbox-defaults{html,body,#root{margin:0;padding:0}}</style>
+<html lang="bn">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Video ViralX Zone</title>
@@ -22,6 +23,29 @@
       padding-bottom: 100px;
       min-height: 100vh;
       overflow-x: hidden;
+    }
+
+    /* প্রথমে দেখানো ছবির পর্দা */
+    #intro-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #030712;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #intro-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: pointer;
+      display: block;
+    }
+
+    #intro-screen.hidden {
+      display: none;
     }
 
     .code-copy-bar {
@@ -340,13 +364,18 @@
       opacity: 1;
     }
   </style>
-<style>html, body, #root {
-      margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;
-      
-    }
-html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+</head>
 
 <body>
+
+  <!-- প্রথমে দেখানো ছবি: ছবিতে ক্লিক করলে Monetag খুলবে -->
+  <div id="intro-screen">
+    <img
+      src="https://iili.io/ncORCR2.th.png"
+      alt="Viral Movie Hub"
+      onclick="openAdAndContinue()"
+    >
+  </div>
 
   <div class="code-copy-bar">
     <span><i class="fa-solid fa-code"></i> Video ViralX Zone App</span>
@@ -369,16 +398,16 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
 
   <div class="pag-oval-container">
     <div class="pag-grid">
-      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle active">1</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">2</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">3</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">4</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">5</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">6</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">7</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">8</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">9</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">10</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="pag-circle active">1</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="pag-circle">2</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="pag-circle">3</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="pag-circle">4</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="pag-circle">5</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="pag-circle">6</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="pag-circle">7</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="pag-circle">8</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="pag-circle">9</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="pag-circle">10</a>
     </div>
   </div>
 
@@ -390,15 +419,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNRDnn.md.jpg" alt="Hot Model #1">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#1 VIRAL HOT</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -410,15 +439,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNRQjt.md.jpg" alt="Hot Model #2">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#2 TRENDING</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -430,15 +459,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncN5eS4.md.jpg" alt="Hot Model #3">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#3 POPULAR</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -450,15 +479,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNRbGs.md.jpg" alt="Hot Model #4">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#4 EXCLUSIVE</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -470,15 +499,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNR6aR.md.jpg" alt="Hot Model #5">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#5 TOP VIRAL</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -490,15 +519,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNRPvp.md.jpg" alt="Hot Model #6">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#6 NEW</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -510,15 +539,15 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
         <img src="https://iili.io/ncNRLuI.md.jpg" alt="Hot Model #7">
         <div class="card-overlay-gradient"></div>
         <span class="card-tag">#7 SPECIAL</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="play-trigger">
           <i class="fa-solid fa-play"></i>
         </a>
       </div>
       <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play">
+        <a href="https://omg10.com/4/11914917" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-play">
           <i class="fa-solid fa-play"></i> প্লে করুন
         </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener noreferrer" class="c-btn c-btn-down">
           <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
         </a>
       </div>
@@ -527,34 +556,49 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
   </div>
 
   <div class="floating-join-wrap">
-    <a href="https://omg10.com/4/11914917" target="_blank" class="join-pill-btn">
+    <a href="https://t.me/ViralMovieHubBot" target="_blank" rel="noopener noreferrer" class="join-pill-btn">
       <div class="tg-circle"><i class="fa-paper-plane fa-solid"></i></div>
-      <span>টেলিগ্রাম চ্যানেলে জয়েন করুন <span style="color: #facc15;">✨</span></span>
+      <span>টেলিগ্রাম বটে জয়েন করুন <span style="color: #facc15;">✨</span></span>
     </a>
   </div>
 
   <div class="toast" id="toast">কপি সম্পন্ন হয়েছে!</div>
 
   <script>
+    function openAdAndContinue() {
+      window.open(
+        "https://omg10.com/4/11914917",
+        "_blank",
+        "noopener,noreferrer"
+      );
+
+      document.getElementById("intro-screen").classList.add("hidden");
+    }
+
     function handleSearch() {
-      window.open('https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16', '_blank');
+      window.open(
+        "https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16",
+        "_blank",
+        "noopener,noreferrer"
+      );
     }
 
     function showToast(msg) {
-      const toast = document.getElementById('toast');
+      const toast = document.getElementById("toast");
       toast.innerText = msg;
-      toast.classList.add('show');
+      toast.classList.add("show");
+
       setTimeout(() => {
-        toast.classList.remove('show');
+        toast.classList.remove("show");
       }, 2000);
     }
 
     function copyFullCode() {
-      const fullHTML = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const fullHTML = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(fullHTML).then(() => {
-          showToast('কোড কপি করা হয়েছে!');
+          showToast("কোড কপি করা হয়েছে!");
         }).catch(() => {
           fallbackCopy(fullHTML);
         });
@@ -564,18 +608,18 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
     }
 
     function fallbackCopy(text) {
-      const textarea = document.createElement('textarea');
+      const textarea = document.createElement("textarea");
       textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
       document.body.appendChild(textarea);
       textarea.select();
 
       try {
-        document.execCommand('copy');
-        showToast('কোড কপি করা হয়েছে!');
+        document.execCommand("copy");
+        showToast("কোড কপি করা হয়েছে!");
       } catch (err) {
-        showToast('কপি করতে ব্যর্থ হয়েছে');
+        showToast("কপি করতে ব্যর্থ হয়েছে");
       }
 
       document.body.removeChild(textarea);
@@ -587,5 +631,5 @@ html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grays
     }
   </script>
 
-
-</body></html>
+</body>
+  </html>
