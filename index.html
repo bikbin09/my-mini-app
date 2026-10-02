@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Video ViralX Zone</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -10,41 +10,114 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
     }
 
     body {
-      background-color: #070b14;
+      background-color: #030712;
       color: #ffffff;
       padding-bottom: 90px;
-      -webkit-tap-highlight-color: transparent;
     }
 
-    /* Top Search Header */
-    .search-container {
-      padding: 12px 16px;
-      position: sticky;
+    /* --- 18+ AGE VERIFICATION OVERLAY (Screenshot Match) --- */
+    .age-overlay {
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: #070b14;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #090814;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .search-bar {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 25px;
-      padding: 10px 16px;
+    .age-card {
+      width: 100%;
+      max-width: 360px;
+      background: rgba(15, 18, 37, 0.95);
+      border: 1.5px solid #e11d48;
+      border-radius: 28px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(225, 29, 72, 0.25);
+    }
+
+    .age-icon-box {
+      width: 75px;
+      height: 75px;
+      border: 3px solid #f43f5e;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f43f5e;
+      font-size: 26px;
+      font-weight: 900;
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
+    }
+
+    .age-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #f87171;
+      margin-bottom: 12px;
+    }
+
+    .age-text-box {
+      background: rgba(30, 27, 75, 0.5);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+      border-radius: 16px;
+      padding: 12px;
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .age-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
+      border: none;
+      border-radius: 22px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(225, 29, 72, 0.5);
+      margin-top: 10px;
+    }
+
+    /* --- MAIN APP LAYOUT --- */
+    .search-box {
+      padding: 12px 16px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-input-wrap {
+      flex: 1;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .search-bar i {
-      color: #9ca3af;
-      font-size: 16px;
-    }
-
-    .search-bar input {
+    .search-input-wrap input {
       background: transparent;
       border: none;
       outline: none;
@@ -53,75 +126,75 @@
       width: 100%;
     }
 
-    .search-btn {
-      background: linear-gradient(135deg, #2563eb, #4f46e5);
-      color: #fff;
-      border: none;
-      padding: 6px 16px;
-      border-radius: 18px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
+    .search-input-wrap i {
+      color: #64748b;
     }
 
-    /* Number Pagination Wrapper */
-    .pagination-box {
-      margin: 10px 16px;
-      padding: 14px 10px;
+    .search-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Pagination Oval Grid (1 to 10) */
+    .pag-oval-container {
+      margin: 8px 16px 16px 16px;
+      padding: 12px 8px;
       border: 1px solid #1e293b;
-      border-radius: 30px;
+      border-radius: 35px;
       background: rgba(15, 23, 42, 0.6);
     }
 
-    .pagination-grid {
+    .pag-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      row-gap: 12px;
+      gap: 8px;
+      row-gap: 10px;
       justify-items: center;
     }
 
-    .num-btn {
+    .pag-circle {
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      border: 1px solid #334155;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: #020617;
+      border: 1px solid #1e293b;
+      color: #94a3b8;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 14px;
       text-decoration: none;
-      transition: all 0.2s ease;
     }
 
-    .num-btn.active {
+    .pag-circle.active {
       background: #f97316;
       border-color: #f97316;
-      color: #fff;
-      box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
     }
 
     /* Content Cards */
-    .content-area {
+    .card-list {
       padding: 0 16px;
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      margin-top: 10px;
+      gap: 20px;
     }
 
-    .video-card {
-      background: #0f172a;
+    .card {
+      background: #090d16;
+      border: 1px solid #1e293b;
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid #1e293b;
     }
 
-    /* Collage Grid Frame */
-    .thumb-grid {
+    .collage-wrapper {
       position: relative;
       width: 100%;
       height: 220px;
@@ -130,258 +203,247 @@
       grid-template-rows: 1fr 1fr;
       gap: 2px;
       background: #000;
-      overflow: hidden;
     }
 
-    .thumb-grid img {
+    .collage-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .thumb-grid img.span-large {
+    .collage-wrapper img.tall {
       grid-row: span 2;
     }
 
-    .card-num-badge {
+    .card-tag {
       position: absolute;
       top: 10px;
       left: 10px;
       background: #f97316;
       color: #fff;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 6px;
-      z-index: 2;
+      padding: 3px 7px;
+      border-radius: 5px;
+      z-index: 3;
     }
 
-    .center-play-icon {
+    .play-trigger {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 52px;
-      height: 52px;
-      background: #ef4444;
+      width: 50px;
+      height: 50px;
+      background: #e11d48;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 20px;
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
-      z-index: 2;
+      font-size: 18px;
+      box-shadow: 0 0 18px rgba(225, 29, 72, 0.8);
+      z-index: 3;
       text-decoration: none;
-      padding-left: 3px;
+      padding-left: 2px;
     }
 
-    /* Action Buttons */
-    .card-footer-btns {
+    .card-btn-bar {
       display: flex;
-      padding: 12px;
-      gap: 12px;
+      padding: 10px;
+      gap: 10px;
       background: #0f172a;
     }
 
-    .action-btn {
+    .c-btn {
       flex: 1;
-      padding: 11px;
-      border-radius: 22px;
+      padding: 10px;
+      border-radius: 20px;
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      border: none;
+      gap: 6px;
     }
 
-    .play-btn {
-      background: #3b82f6;
-      color: #ffffff;
-      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    .c-btn-play {
+      background: #2563eb;
+      color: #fff;
     }
 
-    .download-btn {
+    .c-btn-down {
       background: #1e293b;
-      color: #e2e8f0;
+      color: #cbd5e1;
       border: 1px solid #334155;
     }
 
-    /* Floating Telegram Join Box */
-    .floating-telegram-bar {
+    /* Floating Join Banner */
+    .floating-join-wrap {
       position: fixed;
-      bottom: 20px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
       width: calc(100% - 32px);
-      max-width: 400px;
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(10px);
-      border: 1px solid #38bdf8;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .timer-subtext {
+      font-size: 11px;
+      color: #f97316;
+      margin-bottom: 4px;
+      font-weight: 600;
+      text-shadow: 0 1px 4px #000;
+    }
+
+    .join-pill-btn {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #0284c7;
       border-radius: 30px;
-      padding: 10px 20px;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-      z-index: 999;
-      text-decoration: none;
       color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
     }
 
-    .tg-icon-circle {
-      width: 32px;
-      height: 32px;
-      background: #0284c7;
+    .tg-circle {
+      width: 30px;
+      height: 30px;
+      background: #0ea5e9;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-    }
-
-    .tg-text {
-      font-size: 16px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .sparkle {
-      color: #facc15;
-    }
-
-    /* Top Red Notice Banner */
-    .top-notice {
-      background: #dc2626;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px;
-      text-align: center;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .top-notice marquee {
-      vertical-align: middle;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Notice -->
-  <div class="top-notice">
-    <marquee scrollamount="5">সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে দেখতে এবং হাই স্পিডে ডাউনলোড করতে বাটনগুলোতে ক্লিক করুন!</marquee>
+  <!-- 18+ Verification Modal Overlay -->
+  <div class="age-overlay" id="ageOverlay">
+    <div class="age-card">
+      <div class="age-icon-box">18+</div>
+      <div class="age-title">VERIFY YOUR AGE</div>
+      
+      <div class="age-text-box">
+        আপনার বয়স ১৮ বছরের বেশি হলে নিচের ভেরিফিকেশন বাটন ক্লিক করুন 👇👇👇👇⚠️
+      </div>
+      
+      <div class="age-text-box">
+        📢 আপনার বয়স ১৮+ হতে হবে। প্রবেশের জন্য নিশ্চিত করুন।<br>
+        আপনার বয়স ১৮ বছরের বেশি হলে নিচের ভেরিফিকেশন বাটন ক্লিক করুন 👇👇👇👇.
+      </div>
+
+      <button class="age-btn" onclick="verifyAge()">
+        <i class="fa-solid fa-square-check" style="font-size: 18px; color: #86efac;"></i>
+        I AM 18+ & ENTER
+      </button>
+    </div>
   </div>
 
-  <!-- Search Bar -->
-  <div class="search-container">
-    <div class="search-bar">
+  <!-- Search Header -->
+  <div class="search-box">
+    <div class="search-input-wrap">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" placeholder="ভিডিও সার্চ করুন...">
-      <button class="search-btn">সার্চ</button>
+    </div>
+    <button class="search-btn">সার্চ</button>
+  </div>
+
+  <!-- Oval Pagination Box (1 - 10) -->
+  <div class="pag-oval-container">
+    <div class="pag-grid">
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle active">1</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">2</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">3</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">4</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">5</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">6</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">7</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">8</a>
+      <a href="https://omg10.com/4/11914917" target="_blank" class="pag-circle">9</a>
+      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pag-circle">10</a>
     </div>
   </div>
 
-  <!-- Number Pagination (1 to 10) -->
-  <div class="pagination-box">
-    <div class="pagination-grid">
-      <a href="https://omg10.com/4/11914917" target="_blank" class="num-btn active">1</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="num-btn">2</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="num-btn">3</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="num-btn">4</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="num-btn">5</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_btn" class="num-btn">6</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="num-btn">7</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="num-btn">8</a>
-      <a href="https://omg10.com/4/11914917" target="_blank" class="num-btn">9</a>
-      <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="num-btn">10</a>
-    </div>
-  </div>
-
-  <!-- Video List Container -->
-  <div class="content-area">
+  <!-- Cards Section -->
+  <div class="card-list">
 
     <!-- Card #1 -->
-    <div class="video-card">
-      <div class="thumb-grid">
-        <span class="card-num-badge">#1</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="center-play-icon">
-          <i class="fa-solid fa-play"></i>
-        </a>
-        <img class="span-large" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video">
+    <div class="card">
+      <div class="collage-wrapper">
+        <span class="card-tag">#1</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img class="tall" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video">
       </div>
-      <div class="card-footer-btns">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="action-btn play-btn">
-          <i class="fa-solid fa-play"></i> প্লে
-        </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="action-btn download-btn">
-          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
-        </a>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
       </div>
     </div>
 
     <!-- Card #2 -->
-    <div class="video-card">
-      <div class="thumb-grid">
-        <span class="card-num-badge">#2</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="center-play-icon">
-          <i class="fa-solid fa-play"></i>
-        </a>
-        <img class="span-large" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Viral Video">
+    <div class="card">
+      <div class="collage-wrapper">
+        <span class="card-tag">#2</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img class="tall" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&q=80" alt="Viral Video">
       </div>
-      <div class="card-footer-btns">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="action-btn play-btn">
-          <i class="fa-solid fa-play"></i> প্লে
-        </a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="action-btn download-btn">
-          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
-        </a>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
       </div>
     </div>
 
     <!-- Card #3 -->
-    <div class="video-card">
-      <div class="thumb-grid">
-        <span class="card-num-badge">#3</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="center-play-icon">
-          <i class="fa-solid fa-play"></i>
-        </a>
-        <img class="span-large" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video">
+    <div class="card">
+      <div class="collage-wrapper">
+        <span class="card-tag">#3</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+        <img class="tall" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video">
         <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video">
       </div>
-      <div class="card-footer-btns">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="action-btn play-btn">
-          <i class="fa-solid fa-play"></i> প্লে
-        </a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="action-btn download-btn">
-          <i class="fa-solid fa-arrow-down"></i> ডাউনলোড
-        </a>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
       </div>
     </div>
 
   </div>
 
-  <!-- Floating Join Button -->
-  <a href="https://omg10.com/4/11914917" target="_blank" class="floating-telegram-bar">
-    <div class="tg-icon-circle">
-      <i class="fa-paper-plane fa-solid"></i>
-    </div>
-    <div class="tg-text">
-      <span class="sparkle">✨</span> জয়েন করুন
-    </div>
-  </a>
+  <!-- Floating Telegram Bar -->
+  <div class="floating-join-wrap">
+    <div class="timer-subtext">💣💣 🎬 ফুলস্ক্রিন এড শুরু হবে: 0 সেকেন্ডে</div>
+    <a href="https://omg10.com/4/11914917" target="_blank" class="join-pill-btn">
+      <div class="tg-circle"><i class="fa-paper-plane fa-solid"></i></div>
+      <span style="color: #facc15;">✨</span> জয়েন করুন
+    </a>
+  </div>
 
+  <script>
+    function verifyAge() {
+      document.getElementById('ageOverlay').style.display = 'none';
+      window.open('https://omg10.com/4/11914917', '_blank');
+    }
+  </script>
 </body>
 </html>
