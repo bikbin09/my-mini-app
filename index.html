@@ -1,36 +1,356 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
-    
-    <!-- Monetag In-Page Push Script (মনিটেগ থেকে কোড পেলে এখানে পেস্ট করবেন) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video ViralX Zone 18+</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      padding-bottom: 70px;
+    }
+
+    /* Header */
+    .header {
+      background: #111827;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3b82f6;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-18 {
+      background: #dc2626;
+      color: white;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* Search Bar */
+    .search-box {
+      padding: 12px 16px;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input-wrapper i {
+      position: absolute;
+      left: 12px;
+      color: #9ca3af;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 10px 10px 36px;
+      background: #1f2937;
+      border: 1px solid #374151;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+
+    /* Pagination Pills */
+    .pagination-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 16px;
+      scrollbar-width: none;
+    }
+
+    .pagination-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pill {
+      min-width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #1f2937;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none;
+      border: 1px solid #374151;
+      cursor: pointer;
+    }
+
+    .pill.active {
+      background: #f97316;
+      border-color: #ea580c;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+    }
+
+    /* Content Cards */
+    .container {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: #111827;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+    }
+
+    .thumbnail-container {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #f97316;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .play-btn-overlay {
+      width: 50px;
+      height: 50px;
+      background: rgba(220, 38, 38, 0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(220, 38, 38, 0.6);
+      text-decoration: none;
+    }
+
+    .card-actions {
+      display: flex;
+      padding: 12px;
+      gap: 10px;
+      background: #1f2937;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .btn-play {
+      background: #4f46e5;
+    }
+
+    .btn-download {
+      background: #374151;
+    }
+
+    /* Floating Join Button */
+    .floating-join {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #1d4ed8, #0284c7);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+      z-index: 99;
+    }
+
+    /* 18+ Warning Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #1f2937;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 350px;
+      border: 1px solid #ef4444;
+    }
+
+    .modal-content h3 {
+      color: #ef4444;
+      margin-bottom: 12px;
+    }
+
+    .modal-content p {
+      font-size: 14px;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 10px;
+      background: #ef4444;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body style="background-color: #0f172a; color: #ffffff; text-align: center; font-family: Arial, sans-serif; padding: 20px;">
+<body>
 
-    <h1 style="color: #38bdf8;">Welcome to Mini App!</h1>
-    <p style="font-size: 16px; color: #cbd5e1;">Complete tasks below to earn daily rewards.</p>
+  <!-- Age Modal -->
+  <div class="modal-overlay" id="ageModal">
+    <div class="modal-content">
+      <h3>⚠️️ সতর্কতা (১৮+)</h3>
+      <p>এই সাইটে ১৮+ সংবেদনশীল কনটেন্ট রয়েছে। আপনার বয়স কি ১৮ বছরের উপরে?</p>
+      <button class="modal-btn" onclick="closeModal()">হ্যাঁ, আমার বয়স ১৮+</button>
+    </div>
+  </div>
 
-    <div style="margin-top: 40px;">
-        <!-- Direct Link Ad Button -->
-        <button onclick="openMonetagAd()" style="background-color: #22c55e; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
-            🎁 Watch Ad & Claim Reward
-        </button>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">
+      Video ViralX Zone <span class="badge-18">18+</span>
+    </div>
+    <i class="fa-solid fa-ellipsis-vertical"></i>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <div class="search-input-wrapper">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" class="search-input" placeholder="ভিডিও সার্চ করুন...">
+    </div>
+  </div>
+
+  <!-- Pagination Pills -->
+  <div class="pagination-pills">
+    <a href="https://omg10.com/4/11914917" target="_blank" class="pill active">1</a>
+    <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pill">2</a>
+    <a href="https://omg10.com/4/11914917" target="_blank" class="pill">3</a>
+    <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pill">4</a>
+    <a href="https://omg10.com/4/11914917" target="_blank" class="pill">5</a>
+    <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="pill">6</a>
+  </div>
+
+  <!-- Content Cards -->
+  <div class="container">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="thumbnail-container" style="background-image: url('https://picsum.photos/400/220?random=1');">
+        <span class="card-badge">#1 VIRAL</span>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-btn-overlay">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-actions">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="btn btn-play">
+          <i class="fa-solid fa-play"></i> প্লে
+        </a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="btn btn-download">
+          <i class="fa-solid fa-download"></i> ডাউনলোড
+        </a>
+      </div>
     </div>
 
-    <script>
-function openMonetagAd() {
-    var directLink = "https://omg10.com/4/11914917"; // আপনার Monetag Direct Link
-    
-    // সরাসরি বিজ্ঞাপন লিংক নতুন ট্যাবে খুলবে
-    if (window.Telegram && window.Telegram.WebApp) {
-        window.Telegram.WebApp.openLink(directLink);
-    } else {
-        window.open(directLink, '_blank');
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="thumbnail-container" style="background-image: url('https://picsum.photos/400/220?random=2');">
+        <span class="card-badge">#2 HOT</span>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-btn-overlay">
+          <i class="fa-solid fa-play"></i>
+        </a>
+      </div>
+      <div class="card-actions">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="btn btn-play">
+          <i class="fa-solid fa-play"></i> প্লে
+        </a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="btn btn-download">
+          <i class="fa-solid fa-download"></i> ডাউনলোড
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating Join Button -->
+  <a href="https://omg10.com/4/11914917" target="_blank" class="floating-join">
+    <i class="fa-paper-plane fa-brands"></i> জয়েন করুন
+  </a>
+
+  <script>
+    function closeModal() {
+      document.getElementById('ageModal').style.display = 'none';
+      window.open("https://omg10.com/4/11914917", "_blank");
     }
-}
-</script>
+  </script>
 </body>
 </html>
