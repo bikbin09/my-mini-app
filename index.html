@@ -189,7 +189,7 @@
       box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
     }
 
-    /* --- VIDEO CARDS & COLLAGE GRID --- */
+    /* --- VIDEO CARDS & IMAGE CONTAINER --- */
     .card-list {
       padding: 0 16px;
       display: flex;
@@ -204,26 +204,19 @@
       overflow: hidden;
     }
 
-    .collage-wrapper {
+    .card-media-wrapper {
       position: relative;
       width: 100%;
-      height: 200px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 2px;
+      height: 250px;
       background: #000;
       overflow: hidden;
     }
 
-    .collage-item {
+    .card-media-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    .collage-item.large {
-      grid-row: span 2;
+      display: block;
     }
 
     .card-tag {
@@ -388,16 +381,14 @@
     </div>
   </div>
 
-  <!-- CARDS LIST WITH IMAGES FROM SCREENSHOTS -->
+  <!-- CARDS LIST WITH YOUR UPLOADED IMAGES -->
   <div class="card-list">
 
     <!-- Card #1 -->
     <div class="card">
-      <div class="collage-wrapper">
+      <div class="card-media-wrapper">
         <span class="card-tag">#1</span>
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="1790932028594.jpg" alt="Video Cover 1">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -408,11 +399,9 @@
 
     <!-- Card #2 -->
     <div class="card">
-      <div class="collage-wrapper">
+      <div class="card-media-wrapper">
         <span class="card-tag">#2</span>
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="1790932140157.jpg" alt="Video Cover 2">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -423,11 +412,9 @@
 
     <!-- Card #3 -->
     <div class="card">
-      <div class="collage-wrapper">
+      <div class="card-media-wrapper">
         <span class="card-tag">#3</span>
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="1790932223025.jpg" alt="Video Cover 3">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -438,11 +425,9 @@
 
     <!-- Card #4 -->
     <div class="card">
-      <div class="collage-wrapper">
+      <div class="card-media-wrapper">
         <span class="card-tag">#4</span>
-        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="1790932498029.jpg" alt="Video Cover 4">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
@@ -453,11 +438,35 @@
 
     <!-- Card #5 -->
     <div class="card">
-      <div class="collage-wrapper">
+      <div class="card-media-wrapper">
         <span class="card-tag">#5</span>
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="1790932602437.jpg" alt="Video Cover 5">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+      </div>
+    </div>
+
+    <!-- Card #6 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <span class="card-tag">#6</span>
+        <img src="1790932727546.jpg" alt="Video Cover 6">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
+      </div>
+      <div class="card-btn-bar">
+        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
+        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
+      </div>
+    </div>
+
+    <!-- Card #7 -->
+    <div class="card">
+      <div class="card-media-wrapper">
+        <span class="card-tag">#7</span>
+        <img src="1790932823507.jpg" alt="Video Cover 7">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
       </div>
       <div class="card-btn-bar">
