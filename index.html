@@ -99,6 +99,16 @@
       margin-top: 10px;
     }
 
+    /* --- TOP BANNER --- */
+    .top-banner {
+      background: #dc2626;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
     /* --- SEARCH BAR --- */
     .search-box {
       padding: 12px 16px;
@@ -179,7 +189,7 @@
       box-shadow: 0 0 12px rgba(249, 115, 22, 0.7);
     }
 
-    /* --- VIDEO CARDS --- */
+    /* --- VIDEO CARDS & COLLAGE GRID --- */
     .card-list {
       padding: 0 16px;
       display: flex;
@@ -197,21 +207,22 @@
     .collage-wrapper {
       position: relative;
       width: 100%;
-      height: 220px;
+      height: 200px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 2px;
       background: #000;
+      overflow: hidden;
     }
 
-    .collage-wrapper img {
+    .collage-item {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .collage-wrapper img.tall {
+    .collage-item.large {
       grid-row: span 2;
     }
 
@@ -233,19 +244,19 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 50px;
-      height: 50px;
-      background: #e11d48;
+      width: 55px;
+      height: 55px;
+      background: #f43f5e;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 18px;
-      box-shadow: 0 0 18px rgba(225, 29, 72, 0.8);
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.8);
       z-index: 3;
       text-decoration: none;
-      padding-left: 2px;
+      padding-left: 3px;
     }
 
     .card-btn-bar {
@@ -291,14 +302,6 @@
       flex-direction: column;
       align-items: center;
       z-index: 9999;
-    }
-
-    .timer-subtext {
-      font-size: 11px;
-      color: #f97316;
-      margin-bottom: 4px;
-      font-weight: 600;
-      text-shadow: 0 1px 4px #000;
     }
 
     .join-pill-btn {
@@ -355,6 +358,11 @@
     </div>
   </div>
 
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    সবগুলো ভিডিও সম্পূর্ণ ফ্রিতে
+  </div>
+
   <!-- SEARCH HEADER -->
   <div class="search-box">
     <div class="search-input-wrap">
@@ -380,17 +388,17 @@
     </div>
   </div>
 
-  <!-- CARDS LIST -->
+  <!-- CARDS LIST WITH IMAGES FROM SCREENSHOTS -->
   <div class="card-list">
 
     <!-- Card #1 -->
     <div class="card">
       <div class="collage-wrapper">
         <span class="card-tag">#1</span>
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video 1">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video 1">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video 1">
       </div>
       <div class="card-btn-bar">
         <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
@@ -402,10 +410,10 @@
     <div class="card">
       <div class="collage-wrapper">
         <span class="card-tag">#2</span>
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Viral Video 2">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Viral Video 2">
-        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&q=80" alt="Viral Video 2">
       </div>
       <div class="card-btn-bar">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
@@ -417,10 +425,10 @@
     <div class="card">
       <div class="collage-wrapper">
         <span class="card-tag">#3</span>
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video 3">
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video 3">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video 3">
       </div>
       <div class="card-btn-bar">
         <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
@@ -432,10 +440,10 @@
     <div class="card">
       <div class="collage-wrapper">
         <span class="card-tag">#4</span>
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&q=80" alt="Viral Video 4">
-        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&q=80" alt="Viral Video 4">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80" alt="Viral Video 4">
       </div>
       <div class="card-btn-bar">
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
@@ -447,59 +455,14 @@
     <div class="card">
       <div class="collage-wrapper">
         <span class="card-tag">#5</span>
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop" class="collage-item large" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop" class="collage-item" alt="Video Thumbnail">
         <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80" alt="Viral Video 5">
-        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video 5">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video 5">
       </div>
       <div class="card-btn-bar">
         <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
         <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
-      </div>
-    </div>
-
-    <!-- Card #6 -->
-    <div class="card">
-      <div class="collage-wrapper">
-        <span class="card-tag">#6</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80" alt="Viral Video 6">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Viral Video 6">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Viral Video 6">
-      </div>
-      <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
-      </div>
-    </div>
-
-    <!-- Card #7 -->
-    <div class="card">
-      <div class="collage-wrapper">
-        <span class="card-tag">#7</span>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&q=80" alt="Viral Video 7">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&q=80" alt="Viral Video 7">
-        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&q=80" alt="Viral Video 7">
-      </div>
-      <div class="card-btn-bar">
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
-      </div>
-    </div>
-
-    <!-- Card #8 -->
-    <div class="card">
-      <div class="collage-wrapper">
-        <span class="card-tag">#8</span>
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="play-trigger"><i class="fa-solid fa-play"></i></a>
-        <img class="tall" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&q=80" alt="Viral Video 8">
-        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&q=80" alt="Viral Video 8">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80" alt="Viral Video 8">
-      </div>
-      <div class="card-btn-bar">
-        <a href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" class="c-btn c-btn-play"><i class="fa-solid fa-play"></i> প্লে</a>
-        <a href="https://omg10.com/4/11914917" target="_blank" class="c-btn c-btn-down"><i class="fa-solid fa-arrow-down"></i> ডাউনলোড</a>
       </div>
     </div>
 
@@ -507,7 +470,6 @@
 
   <!-- FLOATING TELEGRAM JOIN BUTTON -->
   <div class="floating-join-wrap">
-    <div class="timer-subtext">💣💣 🎬 ফুলস্ক্রিন এড শুরু হবে: 0 সেকেন্ডে</div>
     <a href="https://omg10.com/4/11914917" target="_blank" class="join-pill-btn">
       <div class="tg-circle"><i class="fa-paper-plane fa-solid"></i></div>
       <span style="color: #facc15;">✨</span> জয়েন করুন
