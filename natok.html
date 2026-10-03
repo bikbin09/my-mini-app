@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Funnymerragelife | Bangla Natok</title>
+
+<meta name="description"
+content="Watch Bangla family drama, romantic natok, comedy stories and entertainment videos.">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#080808;
+  color:#fff;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#111111,#281b00);
+  padding:22px 15px;
+  text-align:center;
+  border-bottom:1px solid #333;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:800;
+  color:#ffc107;
+}
+
+.tagline{
+  margin-top:6px;
+  color:#aaa;
+  font-size:13px;
+}
+
+/* HERO */
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:22px 15px 10px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* CATEGORY */
+.categories{
+  max-width:1100px;
+  margin:auto;
+  padding:15px;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+}
+
+.categories button{
+  flex:none;
+  border:1px solid #444;
+  background:#191919;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:22px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.categories button.active{
+  background:#ffc107;
+  color:#000;
+  border-color:#ffc107;
+}
+
+/* SECTION */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:0 15px 40px;
+}
+
+.section-title{
+  font-size:21px;
+  border-left:4px solid #ffc107;
+  padding-left:10px;
+  margin:10px 0 16px;
+}
+
+/* GRID */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+/* CARD */
+.card{
+  background:#151515;
+  border:1px solid #292929;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.thumbnail{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#222;
+}
+
+.thumbnail img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.badge{
+  position:absolute;
+  top:7px;
+  left:7px;
+  background:#e50914;
+  color:white;
+  font-size:10px;
+  font-weight:bold;
+  padding:5px 7px;
+  border-radius:4px;
+}
+
+.card-body{
+  padding:10px;
+}
+
+.title{
+  font-size:14px;
+  font-weight:bold;
+  line-height:1.4;
+  min-height:40px;
+  margin-bottom:9px;
+}
+
+.watch{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:#ffc107;
+  color:#000;
+  font-size:13px;
+  font-weight:bold;
+  padding:10px 5px;
+  border-radius:6px;
+}
+
+.watch:hover{
+  background:#ffda55;
+}
+
+/* NOTICE */
+.notice{
+  max-width:1100px;
+  margin:5px auto 30px;
+  padding:0 15px;
+}
+
+.notice-box{
+  background:#111;
+  border:1px solid #333;
+  border-radius:8px;
+  padding:14px;
+  text-align:center;
+  color:#999;
+  font-size:12px;
+  line-height:1.6;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  border-top:1px solid #222;
+  padding:22px 10px;
+  color:#666;
+  font-size:12px;
+}
+
+/* DESKTOP */
+@media(min-width:700px){
+
+  .video-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+  <div class="logo">
+    FUNNYMERRAGELIFE
+  </div>
+
+  <div class="tagline">
+    Funny • Family • Love • Bangla Natok
+  </div>
+
+</div>
+
+
+<!-- HERO -->
+<div class="hero">
+
+  <h1>🔥 Trending Bangla Natok</h1>
+
+  <p>
+    Enjoy family drama, romantic stories,
+    comedy natok and entertainment videos.
+  </p>
+
+</div>
+
+
+<!-- CATEGORY -->
+<div class="categories">
+
+  <button class="active" onclick="filterVideos('all',this)">
+    All
+  </button>
+
+  <button onclick="filterVideos('family',this)">
+    👨‍👩‍👧 Family
+  </button>
+
+  <button onclick="filterVideos('romantic',this)">
+    ❤️ Romantic
+  </button>
+
+  <button onclick="filterVideos('comedy',this)">
+    😂 Comedy
+  </button>
+
+</div>
+
+
+<!-- VIDEOS -->
+<div class="section">
+
+  <h2 class="section-title">
+    Latest Videos
+  </h2>
+
+
+  <div class="video-grid">
+
+
+    <!-- VIDEO 01 -->
+    <div class="card" data-category="family">
+
+      <div class="thumbnail">
+
+        <span class="badge">FAMILY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Family Natok">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Family Story | Bangla Natok
+        </div>
+
+        <!-- এখানে আসল ভিডিও লিংক বসাবে -->
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_01"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 02 -->
+    <div class="card" data-category="romantic">
+
+      <div class="thumbnail">
+
+        <span class="badge">ROMANTIC</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Romantic Natok">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Love Story | Bangla Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_02"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 03 -->
+    <div class="card" data-category="comedy">
+
+      <div class="thumbnail">
+
+        <span class="badge">COMEDY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Comedy Natok">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Funny Couple Story | Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_03"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 04 -->
+    <div class="card" data-category="family">
+
+      <div class="thumbnail">
+
+        <span class="badge">FAMILY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Family Drama">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Middle Class Family | Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_04"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 05 -->
+    <div class="card" data-category="romantic">
+
+      <div class="thumbnail">
+
+        <span class="badge">LOVE</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Love Story">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          True Love | Bangla Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_05"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 06 -->
+    <div class="card" data-category="comedy">
+
+      <div class="thumbnail">
+
+        <span class="badge">FUNNY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80"
+        alt="Funny Bangla Drama">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Husband Wife Comedy | Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_06"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 07 -->
+    <div class="card" data-category="family">
+
+      <div class="thumbnail">
+
+        <span class="badge">FAMILY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Family Entertainment">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          A Beautiful Family Story
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_07"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 08 -->
+    <div class="card" data-category="romantic">
+
+      <div class="thumbnail">
+
+        <span class="badge">ROMANTIC</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Romantic Drama">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Romantic Story | Bangla Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_08"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 09 -->
+    <div class="card" data-category="comedy">
+
+      <div class="thumbnail">
+
+        <span class="badge">COMEDY</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=80"
+        alt="Bangla Comedy Story">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          Funny Family Story | Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_09"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO 10 -->
+    <div class="card" data-category="family">
+
+      <div class="thumbnail">
+
+        <span class="badge">TRENDING</span>
+
+        <img
+        src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=80"
+        alt="Trending Bangla Natok">
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="title">
+          New Trending Bangla Natok
+        </div>
+
+        <a class="watch"
+        href="YOUR_VIDEO_LINK_10"
+        target="_blank"
+        rel="noopener">
+          ▶ WATCH VIDEO
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<!-- NOTICE -->
+<div class="notice">
+
+  <div class="notice-box">
+
+    Please watch videos from official or authorized sources.
+    This page is for entertainment and discovery.
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+
+  © 2026 Funnymerragelife
+
+</div>
+
+
+<script>
+
+function filterVideos(category,button){
+
+  const cards =
+  document.querySelectorAll(".card");
+
+  const buttons =
+  document.querySelectorAll(".categories button");
+
+
+  buttons.forEach(function(btn){
+
+    btn.classList.remove("active");
+
+  });
+
+
+  button.classList.add("active");
+
+
+  cards.forEach(function(card){
+
+    if(category === "all"){
+
+      card.style.display = "block";
+
+    }
+    else if(card.dataset.category === category){
+
+      card.style.display = "block";
+
+    }
+    else{
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+}
+
+</script>
+
+</body>
+</html>
