@@ -7,7 +7,7 @@
 <title>নতুন বাংলা নাটক | FunnyMerragelife</title>
 
 <meta name="description" content="নতুন নতুন বাংলা নাটক ও বিনোদনের ভিডিও দেখুন FunnyMerragelife-এ।">
-<meta name="keywords" content="Bangla Natok, Bengali Natok, New Bangla Natok 2026, Bangla Drama, FunnyMerragelife">
+<meta name="keywords" content="Bangla Natok, Bengali Natok, New Bangla Natok 2026, Bangla Drama">
 
 <style>
 *{
@@ -129,29 +129,53 @@ body{
     display:block;
 }
 
-.next-btn{
+/* PLAY BUTTON */
+
+.play-btn{
     display:block;
     width:100%;
     text-align:center;
     background:#f5c400;
     color:#000;
     border:none;
-    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+    padding:14px;
+    border-radius:8px;
+    margin-top:15px;
+    cursor:pointer;
+}
+
+.play-btn:hover{
+    background:#fff;
+}
+
+/* NEXT BUTTON */
+
+.next-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background:#222;
+    color:#f5c400;
+    border:1px solid #f5c400;
     font-weight:bold;
     font-size:17px;
     padding:14px;
     border-radius:8px;
-    margin-top:18px;
+    margin-top:12px;
     cursor:pointer;
 }
 
 .next-btn:hover{
-    background:#fff;
+    background:#f5c400;
+    color:#000;
 }
 
 .next-btn:disabled{
-    background:#444;
-    color:#888;
+    background:#333;
+    color:#777;
+    border-color:#444;
     cursor:not-allowed;
 }
 
@@ -194,7 +218,6 @@ body{
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
     <div class="logo">FUNNYMERRAGELIFE</div>
     <p>Bangla Natok • Entertainment • Drama</p>
@@ -203,14 +226,14 @@ body{
 
 <div class="container">
 
-    <!-- HERO -->
     <section class="hero">
         <h1>🎬 নতুন বাংলা নাটক</h1>
         <p>নতুন নতুন বাংলা নাটক ও বিনোদনের ভিডিও এক জায়গায়</p>
     </section>
 
 
-    <!-- TOP AD / NATIVE BANNER -->
+    <!-- TOP ADSTERra NATIVE -->
+
     <div class="ad-box">
 
         <script async="async"
@@ -224,8 +247,6 @@ body{
 
     <h2 class="section-title">🔥 Latest Bangla Natok</h2>
 
-
-    <!-- DRAMA PLAYER -->
 
     <div class="drama-card">
 
@@ -253,7 +274,19 @@ body{
         </div>
 
 
-        <!-- NEXT BUTTON -->
+        <!-- PLAY + ADSTERRA SMARTLINK -->
+
+        <button
+            class="play-btn"
+            id="playButton"
+            onclick="playDrama()">
+
+            ▶️ PLAY NATOK
+
+        </button>
+
+
+        <!-- NEXT -->
 
         <button
             class="next-btn"
@@ -272,7 +305,7 @@ body{
     </div>
 
 
-    <!-- BOTTOM AD -->
+    <!-- BOTTOM NATIVE AD -->
 
     <div class="ad-box">
 
@@ -286,8 +319,6 @@ body{
 
 </div>
 
-
-<!-- FOOTER -->
 
 <footer class="footer">
 
@@ -308,9 +339,15 @@ body{
 <script>
 
 /* ==========================================================
-   BANGLA NATOK LIST
+   ADSTERRA SMARTLINK
+   ========================================================== */
 
-   ভবিষ্যতে নতুন নাটক যোগ করতে এখানে নতুন object যোগ করবে।
+const SMARTLINK =
+"https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16";
+
+
+/* ==========================================================
+   BANGLA NATOK LIST
    ========================================================== */
 
 const dramas = [
@@ -318,61 +355,61 @@ const dramas = [
     {
         title: "ভালোবাসার অভিযান",
         id: "oM2zRwp68Aw",
-        description: "ইরফান সাজ্জাদ ও তানজিন তিশা অভিনীত নতুন বাংলা নাটক। ভালোবাসা, সম্পর্ক ও জীবনের টানাপোড়েনের গল্প।"
+        description: "নতুন বাংলা নাটক। ভালোবাসা, সম্পর্ক ও জীবনের টানাপোড়েনের গল্প।"
     },
 
     {
         title: "জাহান্নাম",
         id: "yfDFYmMebQ4",
-        description: "নতুন বাংলা নাটক। সংঘাত, রহস্য, আবেগ ও ভালোবাসার গল্প।"
+        description: "সংঘাত, রহস্য, আবেগ ও ভালোবাসার গল্প।"
     },
 
     {
         title: "এক্স ইক্যুয়ালস টু প্রেম",
         id: "ripZoGxx51M",
-        description: "নতুন রোমান্টিক বাংলা নাটক। ভালোবাসা ও সম্পর্কের মজার গল্প।"
+        description: "ভালোবাসা ও সম্পর্কের মজার গল্প।"
     },
 
     {
         title: "আমাদের বিশ্বকাপ",
         id: "fvlwR2zjzJ8",
-        description: "নতুন বাংলা নাটক। বন্ধুত্ব, ভালোবাসা ও ফুটবলকে ঘিরে গল্প।"
+        description: "বন্ধুত্ব, ভালোবাসা ও ফুটবলকে ঘিরে একটি মজার গল্প।"
     },
 
     {
         title: "একই ছাদের নিচে",
         id: "DTMwar-8a18",
-        description: "সম্পর্ক, পরিবার ও ভালোবাসার গল্প নিয়ে নতুন বাংলা নাটক।"
+        description: "সম্পর্ক, পরিবার ও ভালোবাসার গল্প।"
     },
 
     {
         title: "রংবাজ",
         id: "-YGQUPvjHbo",
-        description: "অ্যাকশন, মজা ও রোমান্সে ভরা নতুন বাংলা নাটক।"
+        description: "অ্যাকশন, মজা ও রোমান্সে ভরা বাংলা নাটক।"
     },
 
     {
         title: "অবশেষে তুমি এলে",
         id: "6UC0aptve_Q",
-        description: "নতুন রোমান্টিক বাংলা নাটক। ভালোবাসার সুন্দর একটি গল্প।"
+        description: "ভালোবাসার সুন্দর একটি রোমান্টিক গল্প।"
     },
 
     {
         title: "ঝগড়া হোটেল",
         id: "L-5gWfg9MbU",
-        description: "হাসি, মজা ও সম্পর্কের টানাপোড়েন নিয়ে নতুন বাংলা নাটক।"
+        description: "হাসি, মজা ও সম্পর্কের টানাপোড়েনের গল্প।"
     },
 
     {
         title: "মাইনকার চিপায়",
         id: "g9GRWSbIFck",
-        description: "মজার ঘটনা ও রোমান্টিক মুহূর্তে ভরা নতুন বাংলা নাটক।"
+        description: "মজার ঘটনা ও রোমান্টিক মুহূর্তে ভরা বাংলা নাটক।"
     },
 
     {
         title: "বেপরোয়া",
         id: "WseqofclyAI",
-        description: "রোমান্স, আবেগ ও নাটকীয়তায় ভরা নতুন বাংলা নাটক।"
+        description: "রোমান্স, আবেগ ও নাটকীয়তায় ভরা বাংলা নাটক।"
     }
 
 ];
@@ -401,18 +438,27 @@ function loadDrama(index){
     document.getElementById("dramaImage").alt =
         drama.title;
 
+
+    /*
+       ভিডিও শুরুতে লোড থাকবে না।
+       PLAY চাপলে ভিডিও লোড হবে।
+    */
+
     document.getElementById("dramaVideo").src =
-        "https://www.youtube.com/embed/" + drama.id + "?rel=0";
+        "about:blank";
+
+
+    document.getElementById("playButton").innerText =
+        "▶️ PLAY NATOK";
 
 
     document.getElementById("counter").innerText =
         "Natok " + (index + 1) + " of " + dramas.length;
 
 
-    /* শেষ নাটকে NEXT বন্ধ হবে */
-
     const nextButton =
         document.getElementById("nextButton");
+
 
     if(index === dramas.length - 1){
 
@@ -429,6 +475,41 @@ function loadDrama(index){
         nextButton.disabled = false;
 
     }
+
+}
+
+
+/* ==========================================================
+   PLAY NATOK
+
+   1. Adsterra SmartLink নতুন ট্যাবে খুলবে
+   2. একই সঙ্গে বর্তমান পেজে ভিডিও চালু হবে
+   ========================================================== */
+
+function playDrama(){
+
+    const drama = dramas[currentDrama];
+
+
+    /* SmartLink খুলবে */
+
+    window.open(
+        SMARTLINK,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+
+    /* ভিডিও চালু */
+
+    document.getElementById("dramaVideo").src =
+        "https://www.youtube.com/embed/" +
+        drama.id +
+        "?autoplay=1&rel=0";
+
+
+    document.getElementById("playButton").innerText =
+        "▶️ PLAYING...";
 
 }
 
@@ -456,13 +537,12 @@ function nextDrama(){
 
 
 /* ==========================================================
-   FIRST NATOK LOAD
+   FIRST DRAMA
    ========================================================== */
 
 loadDrama(currentDrama);
 
 </script>
-
 
 </body>
 </html>
