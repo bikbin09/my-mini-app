@@ -1,980 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hello Premika | FunnyMerragelife</title>
+<title>বাংলা নাটক | FunnyMerragelife</title>
 
-<meta name="description" content="Watch Hello Premika Bangla Web Series episodes from Jago Series. Follow every episode of this romantic Bangla drama.">
-<meta name="keywords" content="Hello Premika, Bangla Web Series, Bangla Natok, Jago Series, Sakib Siddique, Arohi Mim, Romantic Natok">
+<meta name="description" content="নতুন নতুন বাংলা নাটক ও ওয়েব সিরিজ দেখুন FunnyMerragelife-এ।">
+<meta name="keywords" content="Bangla Natok, Bengali Natok, New Bangla Natok, Bangla Drama, FunnyMerragelife">
 
 <style>
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
-    background:#070707;
+    background:#080808;
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;
 }
 
-header{
+.header{
+    background:linear-gradient(135deg,#111,#1c1c1c);
+    border-bottom:2px solid #f5c400;
+    padding:18px 15px;
     text-align:center;
-    padding:22px 15px;
-    background:linear-gradient(135deg,#111,#000);
-    border-bottom:2px solid #ffc107;
 }
 
 .logo{
-    color:#ffc107;
-    font-size:28px;
-    font-weight:bold;
+    color:#f5c400;
+    font-size:25px;
+    font-weight:900;
     letter-spacing:1px;
 }
 
-.tagline{
+.header p{
     color:#aaa;
-    margin-top:7px;
     font-size:13px;
+    margin-top:4px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
 }
 
 .hero{
     text-align:center;
-    padding:28px 15px 20px;
+    padding:25px 10px;
 }
 
 .hero h1{
-    color:#ffc107;
-    font-size:27px;
-    margin-bottom:10px;
-}
-
-.hero h2{
-    font-size:18px;
-    margin-bottom:10px;
+    color:#f5c400;
+    font-size:30px;
+    margin-bottom:5px;
 }
 
 .hero p{
-    color:#aaa;
-    font-size:13px;
-    line-height:1.6;
-    max-width:700px;
-    margin:auto;
+    color:#bbb;
+    font-size:14px;
 }
 
-.series-box{
-    max-width:900px;
-    margin:0 auto 20px;
-    padding:16px;
-    margin-left:12px;
-    margin-right:12px;
+.ad-box{
     background:#111;
     border:1px solid #292929;
     border-radius:12px;
+    padding:12px;
+    margin:15px 0 25px;
     text-align:center;
-}
-
-.series-box strong{
-    color:#ffc107;
-}
-
-.series-box p{
-    color:#999;
-    font-size:12px;
-    line-height:1.6;
-    margin-top:7px;
-}
-
-
-/* NATIVE AD */
-
-.native-ad{
-    max-width:900px;
-    margin:18px auto;
-    padding:10px;
-    margin-left:12px;
-    margin-right:12px;
-    background:#101010;
-    border:1px solid #292929;
-    border-radius:12px;
-    text-align:center;
-}
-
-.ad-label{
-    color:#666;
-    font-size:10px;
-    margin-bottom:8px;
-}
-
-
-/* EPISODES */
-
-.episode-grid{
-    max-width:1200px;
-    margin:auto;
-    padding:10px 12px 35px;
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.episode{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:12px;
     overflow:hidden;
+}
+
+.section-title{
+    color:#f5c400;
+    font-size:22px;
+    margin:25px 0 15px;
+    border-left:4px solid #f5c400;
+    padding-left:10px;
+}
+
+.drama-card{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:15px;
+    margin-bottom:25px;
     box-shadow:0 5px 20px rgba(0,0,0,.35);
 }
 
-.thumb{
+.drama-card img{
     width:100%;
-    aspect-ratio:16/9;
-    overflow:hidden;
-    position:relative;
-    background:#222;
-}
-
-.thumb img{
-    width:100%;
-    height:100%;
+    max-height:450px;
     object-fit:cover;
+    border-radius:10px;
     display:block;
+    margin-bottom:13px;
 }
 
-.ep-number{
-    position:absolute;
-    top:8px;
-    left:8px;
-    background:#e50914;
+.drama-card h2{
     color:#fff;
-    padding:5px 8px;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:bold;
+    font-size:21px;
+    margin-bottom:6px;
 }
 
-.content{
-    padding:12px;
-}
-
-.content h3{
-    font-size:15px;
-    line-height:1.4;
-    margin-bottom:7px;
-}
-
-.content p{
-    color:#888;
-    font-size:12px;
-    line-height:1.5;
-    margin-bottom:12px;
-}
-
-.watch{
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    background:#ffc107;
-    color:#000;
-    padding:11px 8px;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.watch:hover{
-    background:#ffda44;
-}
-
-
-/* NEXT EPISODE */
-
-.next-box{
-    max-width:900px;
-    margin:5px auto 30px;
-    margin-left:12px;
-    margin-right:12px;
-    padding:20px;
-    text-align:center;
-    border:1px solid #3a3a3a;
-    border-radius:12px;
-    background:#0f0f0f;
-}
-
-.next-box h3{
-    color:#ffc107;
-    margin-bottom:8px;
-}
-
-.next-box p{
-    color:#999;
-    font-size:12px;
-    line-height:1.6;
+.drama-card p{
+    color:#aaa;
+    font-size:14px;
     margin-bottom:15px;
 }
 
-.next-btn{
-    display:inline-block;
-    text-decoration:none;
-    background:#ffc107;
-    color:#000;
-    padding:12px 25px;
-    border-radius:7px;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.next-btn:hover{
-    background:#ffda44;
-}
-
-
-/* NOTICE */
-
-.notice{
-    max-width:900px;
-    margin:0 auto 30px;
-    margin-left:12px;
-    margin-right:12px;
-    padding:15px;
-    background:#101010;
-    border:1px solid #292929;
+.embed-container{
+    position:relative;
+    width:100%;
+    overflow:hidden;
     border-radius:10px;
-    color:#777;
-    font-size:11px;
-    line-height:1.6;
+    background:#000;
+    margin-top:12px;
+}
+
+.embed-container iframe{
+    width:100%;
+    min-height:450px;
+    border:0;
+    display:block;
+}
+
+.watch-btn{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    background:#f5c400;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    padding:12px;
+    border-radius:8px;
+    margin-top:12px;
+}
+
+.watch-btn:hover{
+    background:#fff;
+}
+
+.add-note{
+    background:#151515;
+    border:1px dashed #f5c400;
+    border-radius:10px;
+    padding:15px;
+    margin:25px 0;
+    color:#ccc;
     text-align:center;
 }
 
+.add-note strong{
+    color:#f5c400;
+}
 
-/* FOOTER */
-
-footer{
-    border-top:1px solid #292929;
+.footer{
     text-align:center;
     padding:25px 15px;
+    margin-top:30px;
+    border-top:1px solid #292929;
     color:#777;
-    font-size:12px;
+    font-size:13px;
 }
 
-footer strong{
-    color:#ffc107;
-}
-
-
-/* DESKTOP */
-
-@media(min-width:700px){
-
-    .episode-grid{
-        grid-template-columns:repeat(3,1fr);
-        padding-left:20px;
-        padding-right:20px;
-    }
+@media(max-width:600px){
 
     .hero h1{
-        font-size:34px;
+        font-size:25px;
     }
 
-    .logo{
-        font-size:34px;
+    .drama-card{
+        padding:12px;
+    }
+
+    .embed-container iframe{
+        min-height:260px;
+    }
+
+    .drama-card h2{
+        font-size:19px;
     }
 }
-
-@media(min-width:1100px){
-
-    .episode-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-
 <!-- HEADER -->
-
-<header>
-
-    <div class="logo">
-        FUNNYMERRAGELIFE
-    </div>
-
-    <div class="tagline">
-        Funny • Family • Love • Bangla Natok
-    </div>
-
+<header class="header">
+    <div class="logo">FUNNYMERRAGELIFE</div>
+    <p>Bangla Natok • Entertainment • Drama</p>
 </header>
 
 
-<!-- HERO -->
+<div class="container">
 
-<section class="hero">
-
-    <h1>❤️ HELLO PREMIKA</h1>
-
-    <h2>হ্যালো প্রেমিকা</h2>
-
-    <p>
-        Follow the story episode by episode.
-        Watch the latest Bangla Web Series from the official source.
-    </p>
-
-</section>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>🎬 নতুন বাংলা নাটক</h1>
+        <p>নতুন নতুন বাংলা নাটক ও বিনোদনের ভিডিও এক জায়গায়</p>
+    </section>
 
 
-<!-- SERIES INFO -->
+    <!-- TOP AD / NATIVE BANNER -->
+    <div class="ad-box">
 
-<div class="series-box">
+        <!-- PASTE YOUR ADSTERra NATIVE CODE HERE -->
 
-    <strong>
-        🎬 Hello Premika | Bangla Web Series
-    </strong>
+        <script async="async"
+        data-cfasync="false"
+        src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
 
-    <p>
-        Starring Sakib Siddique, Arohi Mim and Tuhin.
-        Directed by Mohon Ahmed and written by Jannatara Ferdaus Mila.
-        Presented by Jago Series.
-    </p>
+        <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
 
-</div>
-
-
-<!-- TOP NATIVE BANNER -->
-
-<div class="native-ad">
-
-    <div class="ad-label">
-        Advertisement
     </div>
 
-    <script async="async"
-    data-cfasync="false"
-    src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
-    </script>
 
-    <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
-
-</div>
+    <h2 class="section-title">🔥 Latest Bangla Natok</h2>
 
 
-<!-- EPISODES -->
+    <!-- =====================================================
+         NATOK 1
+         এখানে প্রথম নাটকের Embed Code বসাবে
+         ===================================================== -->
 
-<div class="episode-grid">
-
-
-<!-- EPISODE 1 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 1
-        </span>
+    <div class="drama-card">
 
         <img
-        src="https://i.ytimg.com/vi/Bl1PoYTSgB0/maxresdefault.jpg"
-        alt="Hello Premika Episode 1">
+        src="https://via.placeholder.com/900x500/181818/f5c400?text=Bangla+Natok+1"
+        alt="বাংলা নাটক ১">
 
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 1
-        </h3>
+        <h2>বাংলা নাটক ১</h2>
 
         <p>
-            Sakib • Arohi • Tuhin
+            নতুন বাংলা নাটক। নিচের ভিডিও প্লেয়ারে নাটকটি দেখুন।
         </p>
 
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
+        <!-- ===============================
+             PASTE EMBED CODE HERE
+             =============================== -->
 
-            ▶ WATCH EPISODE 1
+        <div class="embed-container">
 
-        </a>
+            <!--
+            উদাহরণ:
+
+            <iframe
+            src="YOUR-VIDEO-EMBED-LINK"
+            allowfullscreen>
+            </iframe>
+            -->
+
+            <div style="
+            min-height:200px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#777;
+            padding:30px;
+            text-align:center;">
+                এখানে নাটকের Embed Code বসাও
+            </div>
+
+        </div>
 
     </div>
 
-</div>
 
+    <!-- =====================================================
+         NATOK 2
+         নতুন নাটক যোগ করার জন্য এই কার্ড কপি করবে
+         ===================================================== -->
 
-<!-- EPISODE 2 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 2
-        </span>
+    <div class="drama-card">
 
         <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 2">
+        src="https://via.placeholder.com/900x500/181818/f5c400?text=Bangla+Natok+2"
+        alt="বাংলা নাটক ২">
 
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 2
-        </h3>
+        <h2>বাংলা নাটক ২</h2>
 
         <p>
-            Sakib • Arohi • Tuhin
+            নতুন বাংলা নাটক। নিচের ভিডিও প্লেয়ারে নাটকটি দেখুন।
         </p>
 
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
+        <!-- PASTE EMBED CODE HERE -->
 
-            ▶ WATCH EPISODE 2
+        <div class="embed-container">
 
-        </a>
+            <!--
+            এখানে তোমার Embed Code বসাবে।
+
+            যেমন:
+
+            <iframe
+            src="YOUR-VIDEO-EMBED-LINK"
+            allowfullscreen>
+            </iframe>
+            -->
+
+            <div style="
+            min-height:200px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#777;
+            padding:30px;
+            text-align:center;">
+                এখানে নাটকের Embed Code বসাও
+            </div>
+
+        </div>
 
     </div>
 
-</div>
 
+    <!-- =====================================================
+         NATOK 3
+         ===================================================== -->
 
-<!-- EPISODE 3 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 3
-        </span>
+    <div class="drama-card">
 
         <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 3">
+        src="https://via.placeholder.com/900x500/181818/f5c400?text=Bangla+Natok+3"
+        alt="বাংলা নাটক ৩">
 
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 3
-        </h3>
+        <h2>বাংলা নাটক ৩</h2>
 
         <p>
-            Sakib • Arohi • Tuhin
+            নতুন বাংলা নাটক। নিচের ভিডিও প্লেয়ারে নাটকটি দেখুন।
         </p>
 
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
+        <!-- PASTE EMBED CODE HERE -->
 
-            ▶ WATCH EPISODE 3
+        <div class="embed-container">
 
-        </a>
+            <div style="
+            min-height:200px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#777;
+            padding:30px;
+            text-align:center;">
+                এখানে নাটকের Embed Code বসাও
+            </div>
 
-    </div>
-
-</div>
-
-
-<!-- EPISODE 4 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 4
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 4">
+        </div>
 
     </div>
 
-    <div class="content">
 
-        <h3>
-            Hello Premika - Episode 4
-        </h3>
+    <!-- =====================================================
+         NEW NATOK AREA
+         নতুন নাটক এলে উপরের যেকোনো drama-card কপি করে
+         এখানে বসিয়ে দেবে।
+         ===================================================== -->
 
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
+    <div class="add-note">
 
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
+        <strong>➕ নতুন নাটক যোগ করতে চান?</strong>
 
-            ▶ WATCH EPISODE 4
+        <br><br>
 
-        </a>
+        উপরের একটি <b>drama-card</b> কপি করে এখানে বসান।
+        তারপর শুধু নাটকের নাম, ছবি, Description এবং
+        <b>Embed Code</b> পরিবর্তন করুন।
 
     </div>
 
-</div>
 
+    <!-- BOTTOM AD -->
+    <div class="ad-box">
 
-<!-- EPISODE 5 -->
+        <!--
+        BOTTOM NATIVE AD
 
-<div class="episode">
+        একই Native Zone একাধিক জায়গায় ব্যবহার করলে
+        বিজ্ঞাপন সবসময় দু জায়গায় নাও দেখাতে পারে।
+        প্রয়োজন হলে আলাদা Native Zone ব্যবহার করুন।
+        -->
 
-    <div class="thumb">
+        <script async="async"
+        data-cfasync="false"
+        src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
 
-        <span class="ep-number">
-            EPISODE 5
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 5">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 5
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 5
-
-        </a>
+        <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
 
     </div>
-
-</div>
-
-
-<!-- EPISODE 6 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 6
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 6">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 6
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 6
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 7 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 7
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 7">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 7
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 7
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 8 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 8
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 8">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 8
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 8
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 9 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 9
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 9">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 9
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 9
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 10 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 10
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 10">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 10
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 10
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 11 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 11
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 11">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 11
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 11
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 12 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 12
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/F_pquY9lI7s/maxresdefault.jpg"
-        alt="Hello Premika Episode 12">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 12
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 12
-
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- EPISODE 13 -->
-
-<div class="episode">
-
-    <div class="thumb">
-
-        <span class="ep-number">
-            EPISODE 13
-        </span>
-
-        <img
-        src="https://i.ytimg.com/vi/8u3nQx7rX0E/maxresdefault.jpg"
-        alt="Hello Premika Episode 13">
-
-    </div>
-
-    <div class="content">
-
-        <h3>
-            Hello Premika - Episode 13
-        </h3>
-
-        <p>
-            Sakib • Arohi • Tuhin
-        </p>
-
-        <a
-        class="watch"
-        href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
-        target="_blank"
-        rel="noopener noreferrer">
-
-            ▶ WATCH EPISODE 13
-
-        </a>
-
-    </div>
-
-</div>
-
-
-</div>
-
-
-<!-- BOTTOM NATIVE BANNER -->
-
-<div class="native-ad">
-
-    <div class="ad-label">
-        Advertisement
-    </div>
-
-    <script async="async"
-    data-cfasync="false"
-    src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
-    </script>
-
-    <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
-
-</div>
-
-
-<!-- NEXT EPISODE -->
-
-<div class="next-box">
-
-    <h3>
-        🔔 Don't Miss The Next Episode!
-    </h3>
-
-    <p>
-        New episodes of Hello Premika are released through
-        the official Jago Series source.
-        Come back for the next episode.
-    </p>
-
-    <a
-    class="next-btn"
-    href="https://omg10.com/4/11914917"
-    target="_blank"
-    rel="noopener noreferrer">
-
-        ▶ NEXT EPISODE
-
-    </a>
-
-</div>
-
-
-<!-- NOTICE -->
-
-<div class="notice">
-
-    <strong>Content Notice:</strong><br>
-
-    FunnyMerragelife does not host or upload the drama videos.
-    The WATCH buttons direct viewers to the respective
-    advertising link before continuing.
-    Please support the original creators and official channels.
 
 </div>
 
 
 <!-- FOOTER -->
+<footer class="footer">
 
-<footer>
+    © 2026 FUNNYMERRAGELIFE
 
-    © 2026 <strong>FunnyMerragelife</strong>
+    <br>
+
+    Bangla Natok & Entertainment
 
     <br><br>
 
-    Bangla Natok • Web Series • Family • Love
+    Please use authorized sources when watching or sharing videos.
 
 </footer>
 
