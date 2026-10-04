@@ -4,43 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Indian Bengali Shows | FunnyMerragelife</title>
+<title>Indian Bengali Shows | FUNNYMERRAGELIFE</title>
 
-<meta name="description" content="Watch and discover popular Indian Bengali web series and entertainment shows.">
-<meta name="keywords" content="Indian Bengali Web Series, Bengali Series, Hoichoi, Bengali Shows">
+<meta name="description"
+content="Discover popular Indian Bengali web series and entertainment shows on FUNNYMERRAGELIFE.">
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
+    font-family:Arial,Helvetica,sans-serif;
     background:#080808;
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    line-height:1.6;
 }
 
 .header{
-    background:linear-gradient(135deg,#111,#1c1c1c);
-    border-bottom:2px solid #f5c400;
-    padding:18px 15px;
     text-align:center;
+    padding:22px 15px;
+    background:linear-gradient(135deg,#050505,#181818);
+    border-bottom:2px solid #f5c400;
 }
 
 .logo{
-    color:#f5c400;
-    font-size:25px;
+    font-size:27px;
     font-weight:900;
+    color:#f5c400;
     letter-spacing:1px;
 }
 
 .header p{
-    color:#aaa;
-    font-size:13px;
-    margin-top:4px;
+    margin-top:7px;
+    color:#bbb;
+    font-size:14px;
 }
 
 .container{
@@ -55,144 +54,156 @@ body{
 }
 
 .hero h1{
-    color:#f5c400;
     font-size:30px;
-    margin-bottom:5px;
+    color:#f5c400;
+    margin-bottom:10px;
 }
 
 .hero p{
-    color:#bbb;
-    font-size:14px;
+    color:#ccc;
+    font-size:15px;
 }
 
 .ad-box{
+    margin:15px 0;
+    padding:10px;
+    text-align:center;
     background:#111;
     border:1px solid #292929;
-    border-radius:12px;
-    padding:12px;
-    margin:15px 0 25px;
-    text-align:center;
-    overflow:hidden;
-    min-height:60px;
+    border-radius:10px;
+    min-height:80px;
 }
 
 .section-title{
-    color:#f5c400;
-    font-size:22px;
     margin:25px 0 15px;
-    border-left:4px solid #f5c400;
-    padding-left:10px;
+    font-size:21px;
+    color:#f5c400;
 }
 
 .show-card{
     background:#111;
     border:1px solid #292929;
-    border-radius:14px;
-    padding:15px;
-    margin-bottom:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.35);
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 25px rgba(0,0,0,.5);
 }
 
-.show-card img{
+.poster{
     width:100%;
-    max-height:500px;
+    aspect-ratio:16/9;
     object-fit:cover;
-    border-radius:10px;
     display:block;
-    margin-bottom:13px;
-    background:#181818;
+    background:#151515;
 }
 
-.show-card h2{
+.show-content{
+    padding:20px;
+    text-align:center;
+}
+
+.show-content h2{
     color:#fff;
-    font-size:21px;
-    margin-bottom:6px;
+    font-size:25px;
+    margin-bottom:12px;
 }
 
-.show-card p{
-    color:#aaa;
-    font-size:14px;
-    margin-bottom:15px;
+.show-content p{
+    color:#bbb;
+    line-height:1.7;
+    font-size:15px;
+    margin-bottom:18px;
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:9px;
+    padding:15px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:8px;
 }
 
 .play-btn{
-    display:block;
-    width:100%;
-    text-align:center;
     background:#f5c400;
     color:#000;
-    border:none;
-    font-weight:bold;
-    font-size:18px;
-    padding:14px;
-    border-radius:8px;
-    margin-top:15px;
-    cursor:pointer;
-}
-
-.play-btn:hover{
-    background:#fff;
 }
 
 .next-btn{
-    display:block;
-    width:100%;
-    text-align:center;
     background:#222;
-    color:#f5c400;
-    border:1px solid #f5c400;
-    font-weight:bold;
-    font-size:17px;
-    padding:14px;
-    border-radius:8px;
-    margin-top:12px;
-    cursor:pointer;
-}
-
-.next-btn:hover{
-    background:#f5c400;
-    color:#000;
-}
-
-.next-btn:disabled{
-    background:#333;
-    color:#777;
-    border-color:#444;
-    cursor:not-allowed;
+    color:#fff;
+    border:1px solid #444;
 }
 
 .counter{
-    text-align:center;
+    margin-top:15px;
     color:#888;
     font-size:13px;
-    margin-top:12px;
 }
 
-.footer{
+footer{
     text-align:center;
-    padding:25px 15px;
-    margin-top:30px;
-    border-top:1px solid #292929;
+    padding:30px 15px;
     color:#777;
+    font-size:13px;
+}
+
+/* Poster design */
+.poster-box{
+    width:100%;
+    aspect-ratio:16/9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:25px;
+    background:
+    radial-gradient(circle at top right,#604d00 0%,transparent 35%),
+    linear-gradient(135deg,#111,#242424);
+}
+
+.poster-inner{
+    border:2px solid #f5c400;
+    padding:25px;
+    width:90%;
+    border-radius:12px;
+}
+
+.poster-inner .number{
+    color:#f5c400;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.poster-inner h3{
+    font-size:30px;
+    line-height:1.2;
+}
+
+.poster-inner span{
+    display:block;
+    margin-top:12px;
+    color:#bbb;
     font-size:13px;
 }
 
 @media(max-width:600px){
 
+    .logo{
+        font-size:23px;
+    }
+
     .hero h1{
         font-size:25px;
     }
 
-    .show-card{
-        padding:12px;
+    .show-content h2{
+        font-size:22px;
     }
 
-    .show-card h2{
-        font-size:19px;
-    }
-
-    .show-card img{
-        max-height:450px;
+    .poster-inner h3{
+        font-size:24px;
     }
 }
 </style>
@@ -201,77 +212,124 @@ body{
 <body>
 
 <header class="header">
-    <div class="logo">FUNNYMERRAGELIFE</div>
-    <p>Indian Bengali • Web Series • Entertainment</p>
+
+    <div class="logo">
+        FUNNYMERRAGELIFE
+    </div>
+
+    <p>
+        Indian Bengali • Web Series • Entertainment
+    </p>
+
 </header>
+
 
 <div class="container">
 
 <section class="hero">
+
     <h1>🎬 Indian Bengali Shows</h1>
-    <p>Popular Indian Bengali web series and entertainment shows</p>
+
+    <p>
+        Explore popular Indian Bengali web series and entertainment shows.
+    </p>
+
 </section>
 
-<!-- TOP ADSTERRA -->
+
+<!-- ADSTERra Native Banner -->
 
 <div class="ad-box">
 
-<script async="async"
-data-cfasync="false"
-src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
+<script async data-cfasync="false"
+src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
+</script>
 
 <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
 
 </div>
 
-<h2 class="section-title">🔥 Latest Indian Bengali Shows</h2>
+
+<h2 class="section-title">
+🔥 Latest Indian Bengali Shows
+</h2>
+
 
 <div class="show-card">
 
-<img
-id="showImage"
-src="https://via.placeholder.com/900x500/111111/f5c400?text=Indian+Bengali+Show"
-alt="Indian Bengali Show">
+    <div id="posterArea" class="poster-box">
 
-<h2 id="showTitle">লোড হচ্ছে...</h2>
+        <div class="poster-inner">
 
-<p id="showDescription">
-শোর তথ্য লোড হচ্ছে...
-</p>
+            <div class="number" id="posterNumber">
+                SHOW 01
+            </div>
 
-<button
-class="play-btn"
-id="playButton"
-type="button"
-onclick="watchShow()">
+            <h3 id="posterTitle">
+                Loading...
+            </h3>
 
-▶️ WATCH NOW
+            <span>
+                Indian Bengali Web Series
+            </span>
 
-</button>
+        </div>
 
-<button
-class="next-btn"
-id="nextButton"
-type="button"
-onclick="nextShow()">
+    </div>
 
-⏭️ NEXT SHOW
 
-</button>
+    <div class="show-content">
 
-<div class="counter" id="counter">
-Show 1 of 10
+        <h2 id="showTitle">
+            Loading...
+        </h2>
+
+        <p id="showDescription">
+            Loading show information...
+        </p>
+
+
+        <button
+            class="play-btn"
+            id="playButton"
+            type="button"
+            onclick="watchShow()">
+
+            ▶️ WATCH NOW
+
+        </button>
+
+
+        <button
+            class="next-btn"
+            type="button"
+            onclick="nextShow()">
+
+            ⏭️ NEXT SHOW
+
+        </button>
+
+
+        <div
+            class="counter"
+            id="counter">
+
+            Show 1 of 10
+
+        </div>
+
+    </div>
+
 </div>
 
-</div>
 
-<!-- BOTTOM ADSTERRA -->
+<!-- SECOND AD -->
 
 <div class="ad-box">
 
-<script async="async"
-data-cfasync="false"
-src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
+<script async data-cfasync="false"
+src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
+</script>
 
 <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
 
@@ -279,104 +337,129 @@ src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f
 
 </div>
 
-<footer class="footer">
 
-© 2026 FUNNYMERRAGELIFE
+<footer>
 
-<br>
-
+© 2026 FUNNYMERRAGELIFE<br>
 Indian Bengali Entertainment
-
-<br><br>
-
-Please use authorized sources when watching or sharing videos.
 
 </footer>
 
+
 <script>
 
-/* ==========================================================
+/* =========================
    ADSTERRA SMARTLINK
-========================================================== */
+========================= */
 
 const SMARTLINK =
 "https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16";
 
 
-/* ==========================================================
+/* =========================
    INDIAN BENGALI SHOWS
-========================================================== */
+========================= */
 
 const shows = [
 
 {
 title:"Shakha Proshakha",
-description:"A Bengali mystery drama filled with secrets, family conflicts and unexpected twists.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Shakha+Proshakha",
-watch:"https://hoichoi.tv/shows/shakha-proshakha"
-},
 
-{
-title:"Ajeya: Special Task Force",
-description:"An Indian Bengali action thriller following a special task force and dangerous investigations.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Ajeya",
-watch:"https://hoichoi.tv/"
-},
+description:
+"A Bengali family drama exploring relationships, emotions and the complicated bonds between family members. The show is one of the recent Bengali additions on Hoichoi.",
 
-{
-title:"Choddobeshi",
-description:"A Bengali detective mystery involving deadly accidents, secrets and a dangerous family conspiracy.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Choddobeshi",
-watch:"https://hoichoi.tv/shows/goyenda-aditya-majumdar"
-},
-
-{
-title:"Advocate Achinta Aich",
-description:"A courtroom mystery filled with identity secrets, deception, family drama and shocking revelations.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Advocate+Achinta+Aich",
-watch:"https://hoichoi.tv/shows/advocate-achinta-aich"
-},
-
-{
-title:"Birangana",
-description:"A Bengali drama packed with emotion, mystery and powerful characters.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Birangana",
-watch:"https://hoichoi.tv/"
-},
-
-{
-title:"Debipokkho",
-description:"A Bengali thriller involving a stolen golden idol, murder and a mysterious family.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Debipokkho",
-watch:"https://hoichoi.tv/bn/shows/debipokkho"
+watch:
+"https://hoichoi.tv/shows/shakha-proshakha"
 },
 
 {
 title:"Karma Clinic",
-description:"An Indian Bengali non-fiction show exploring astrology, numerology, vastu and unexplained problems.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Karma+Clinic",
-watch:"https://hoichoi.tv/"
+
+description:
+"A Bengali entertainment series featuring an unusual story, interesting characters and a different kind of dramatic experience.",
+
+watch:
+"https://hoichoi.tv/"
 },
 
 {
 title:"Cancel Me Not",
-description:"A contemporary Bengali entertainment series with drama, emotions and unexpected moments.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Cancel+Me+Not",
-watch:"https://hoichoi.tv/"
+
+description:
+"A modern Bengali series with drama, relationships and contemporary entertainment. Discover the story and characters of this recent Hoichoi title.",
+
+watch:
+"https://hoichoi.tv/"
+},
+
+{
+title:"Ajeya: Special Task Force",
+
+description:
+"A Bengali action and thriller-style series following a special task force and its challenging missions.",
+
+watch:
+"https://hoichoi.tv/"
+},
+
+{
+title:"Advocate Achinta Aich",
+
+description:
+"A Bengali courtroom and mystery-oriented series following Advocate Achinta Aich as he deals with complicated cases and unexpected situations.",
+
+watch:
+"https://hoichoi.tv/shows/advocate-achinta-aich"
+},
+
+{
+title:"Choddobeshi",
+
+description:
+"A Bengali mystery series featuring detective Aditya Majumdar and a collection of intriguing cases.",
+
+watch:
+"https://hoichoi.tv/shows/goyenda-aditya-majumdar"
+},
+
+{
+title:"Birangana",
+
+description:
+"A Bengali period drama with a strong central character and an engaging storyline. A good choice for viewers who enjoy dramatic Bengali stories.",
+
+watch:
+"https://hoichoi.tv/"
+},
+
+{
+title:"Debipokkho",
+
+description:
+"A Bengali drama series with mystery, emotion and family conflict. The story brings together different characters and unexpected developments.",
+
+watch:
+"https://hoichoi.tv/bn/shows/debipokkho"
 },
 
 {
 title:"Puratawn",
-description:"A Bengali drama exploring family relationships, memories and emotional conflicts.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Puratawn",
-watch:"https://hoichoi.tv/"
+
+description:
+"A Bengali family drama focusing on relationships, memories and emotional connections between people.",
+
+watch:
+"https://hoichoi.tv/"
 },
 
 {
 title:"Aajo Ardhangini",
-description:"A Bengali family drama filled with relationships, emotions and life-changing situations.",
-poster:"https://via.placeholder.com/900x500/111111/f5c400?text=Aajo+Ardhangini",
-watch:"https://hoichoi.tv/"
+
+description:
+"A Bengali family drama featuring emotional relationships and family dynamics. A recent Bengali title available in the Hoichoi catalogue.",
+
+watch:
+"https://hoichoi.tv/"
 }
 
 ];
@@ -385,109 +468,105 @@ watch:"https://hoichoi.tv/"
 let currentShow = 0;
 
 
-/* ==========================================================
+/* =========================
    LOAD SHOW
-========================================================== */
+========================= */
 
 function loadShow(index){
 
-const show = shows[index];
+    const show = shows[index];
 
-document.getElementById("showTitle").innerText =
-show.title;
+    document.getElementById("showTitle").innerText =
+        show.title;
 
-document.getElementById("showDescription").innerText =
-show.description;
+    document.getElementById("posterTitle").innerText =
+        show.title;
 
-document.getElementById("showImage").src =
-show.poster;
+    document.getElementById("showDescription").innerText =
+        show.description;
 
-document.getElementById("showImage").alt =
-show.title;
+    document.getElementById("posterNumber").innerText =
+        "SHOW " +
+        String(index + 1).padStart(2,"0");
 
-document.getElementById("playButton").innerText =
-"▶️ WATCH NOW";
-
-document.getElementById("counter").innerText =
-"Show " + (index + 1) + " of " + shows.length;
-
-const nextButton =
-document.getElementById("nextButton");
-
-if(index === shows.length - 1){
-
-nextButton.innerText =
-"✓ ALL SHOWS COMPLETED";
-
-nextButton.disabled = true;
-
-}else{
-
-nextButton.innerText =
-"⏭️ NEXT SHOW";
-
-nextButton.disabled = false;
-
-}
+    document.getElementById("counter").innerText =
+        "Show " +
+        (index + 1) +
+        " of " +
+        shows.length;
 
 }
 
 
-/* ==========================================================
+/* =========================
    WATCH NOW
-========================================================== */
+========================= */
 
 function watchShow(){
 
-const show = shows[currentShow];
+    const show = shows[currentShow];
 
-/*
-Ad opens in a new tab.
-The official show page opens in another tab.
-*/
+    /*
+       First open Adsterra Smartlink.
+    */
 
-window.open(
-SMARTLINK,
-"_blank"
-);
+    window.open(
+        SMARTLINK,
+        "_blank"
+    );
 
-setTimeout(function(){
+    /*
+       Then open the official show page.
+    */
 
-window.open(
-show.watch,
-"_blank"
-);
+    setTimeout(function(){
 
-},800);
+        window.open(
+            show.watch,
+            "_blank"
+        );
+
+    },800);
 
 }
 
 
-/* ==========================================================
+/* =========================
    NEXT SHOW
-========================================================== */
+========================= */
 
 function nextShow(){
 
-if(currentShow < shows.length - 1){
+    if(currentShow < shows.length - 1){
 
-currentShow++;
+        currentShow++;
 
-loadShow(currentShow);
+        loadShow(currentShow);
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }else{
+
+        currentShow = 0;
+
+        loadShow(currentShow);
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
 
 }
 
-}
 
-
-/* ==========================================================
-   FIRST SHOW
-========================================================== */
+/* =========================
+   START
+========================= */
 
 loadShow(currentShow);
 
