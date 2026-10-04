@@ -73,6 +73,7 @@ body{
     margin:15px 0 25px;
     text-align:center;
     overflow:hidden;
+    min-height:60px;
 }
 
 .section-title{
@@ -99,6 +100,7 @@ body{
     border-radius:10px;
     display:block;
     margin-bottom:13px;
+    background:#181818;
 }
 
 .drama-card h2{
@@ -120,11 +122,12 @@ body{
     border-radius:10px;
     background:#000;
     margin-top:12px;
+    aspect-ratio:16/9;
 }
 
 .embed-container iframe{
     width:100%;
-    height:450px;
+    height:100%;
     border:0;
     display:block;
 }
@@ -195,6 +198,12 @@ body{
     font-size:13px;
 }
 
+.loading{
+    text-align:center;
+    color:#888;
+    padding:20px;
+}
+
 @media(max-width:600px){
 
     .hero h1{
@@ -205,12 +214,12 @@ body{
         padding:12px;
     }
 
-    .embed-container iframe{
-        height:260px;
-    }
-
     .drama-card h2{
         font-size:19px;
+    }
+
+    .embed-container{
+        aspect-ratio:16/9;
     }
 }
 </style>
@@ -223,7 +232,6 @@ body{
     <p>Bangla Natok • Entertainment • Drama</p>
 </header>
 
-
 <div class="container">
 
     <section class="hero">
@@ -232,7 +240,7 @@ body{
     </section>
 
 
-    <!-- TOP ADSTERra NATIVE -->
+    <!-- TOP ADSTERRA NATIVE -->
 
     <div class="ad-box">
 
@@ -250,13 +258,18 @@ body{
 
     <div class="drama-card">
 
-        <img id="dramaImage"
+        <img
+        id="dramaImage"
         src=""
-        alt="Bangla Natok">
+        alt="Bangla Natok"
+        onerror="this.src='https://via.placeholder.com/900x500/111111/f5c400?text=Bangla+Natok';"
+        >
 
-        <h2 id="dramaTitle"></h2>
+        <h2 id="dramaTitle">লোড হচ্ছে...</h2>
 
-        <p id="dramaDescription"></p>
+        <p id="dramaDescription" class="loading">
+            নাটকের তথ্য লোড হচ্ছে...
+        </p>
 
 
         <!-- VIDEO -->
@@ -265,8 +278,9 @@ body{
 
             <iframe
                 id="dramaVideo"
-                src=""
-                title="Bangla Natok"
+                src="about:blank"
+                title="Bangla Natok Video"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
             </iframe>
@@ -274,11 +288,12 @@ body{
         </div>
 
 
-        <!-- PLAY + ADSTERRA SMARTLINK -->
+        <!-- PLAY -->
 
         <button
             class="play-btn"
             id="playButton"
+            type="button"
             onclick="playDrama()">
 
             ▶️ PLAY NATOK
@@ -291,6 +306,7 @@ body{
         <button
             class="next-btn"
             id="nextButton"
+            type="button"
             onclick="nextDrama()">
 
             ⏭️ NEXT NATOK
@@ -305,7 +321,7 @@ body{
     </div>
 
 
-    <!-- BOTTOM NATIVE AD -->
+    <!-- BOTTOM ADSTERRA NATIVE -->
 
     <div class="ad-box">
 
@@ -333,7 +349,6 @@ body{
     Please use authorized sources when watching or sharing videos.
 
 </footer>
-
 
 
 <script>
@@ -433,16 +448,13 @@ function loadDrama(index){
         drama.description;
 
     document.getElementById("dramaImage").src =
-        "https://i.ytimg.com/vi/" + drama.id + "/maxresdefault.jpg";
+        "https://i.ytimg.com/vi/" + drama.id + "/hqdefault.jpg";
 
     document.getElementById("dramaImage").alt =
         drama.title;
 
 
-    /*
-       ভিডিও শুরুতে লোড থাকবে না।
-       PLAY চাপলে ভিডিও লোড হবে।
-    */
+    /* ভিডিও শুরুতে লোড হবে না */
 
     document.getElementById("dramaVideo").src =
         "about:blank";
@@ -482,8 +494,9 @@ function loadDrama(index){
 /* ==========================================================
    PLAY NATOK
 
-   1. Adsterra SmartLink নতুন ট্যাবে খুলবে
-   2. একই সঙ্গে বর্তমান পেজে ভিডিও চালু হবে
+   PLAY চাপলে:
+   1. Adsterra SmartLink নতুন tab-এ খুলবে
+   2. বর্তমান পেজে YouTube ভিডিও চালু হবে
    ========================================================== */
 
 function playDrama(){
@@ -491,13 +504,18 @@ function playDrama(){
     const drama = dramas[currentDrama];
 
 
-    /* SmartLink খুলবে */
+    /* SmartLink */
 
-    window.open(
+    const adWindow = window.open(
         SMARTLINK,
-        "_blank",
-        "noopener,noreferrer"
+        "_blank"
     );
+
+
+    /*
+       Popup blocker থাকলে অন্তত ভিডিও চলবে।
+       তাই adWindow নিয়ে আর কোনো নির্ভরতা নেই।
+    */
 
 
     /* ভিডিও চালু */
