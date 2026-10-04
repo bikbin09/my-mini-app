@@ -162,20 +162,6 @@ body{
     margin-top:12px;
 }
 
-.add-note{
-    background:#151515;
-    border:1px dashed #f5c400;
-    border-radius:10px;
-    padding:15px;
-    margin:25px 0;
-    color:#ccc;
-    text-align:center;
-}
-
-.add-note strong{
-    color:#f5c400;
-}
-
 .footer{
     text-align:center;
     padding:25px 15px;
@@ -239,10 +225,7 @@ body{
     <h2 class="section-title">🔥 Latest Bangla Natok</h2>
 
 
-    <!-- =====================================================
-         NATOK PLAYER
-         এখানে একবারে একটি নাটক দেখাবে
-         ===================================================== -->
+    <!-- DRAMA PLAYER -->
 
     <div class="drama-card">
 
@@ -254,7 +237,9 @@ body{
 
         <p id="dramaDescription"></p>
 
+
         <!-- VIDEO -->
+
         <div class="embed-container">
 
             <iframe
@@ -269,6 +254,7 @@ body{
 
 
         <!-- NEXT BUTTON -->
+
         <button
             class="next-btn"
             id="nextButton"
@@ -286,27 +272,8 @@ body{
     </div>
 
 
-    <!-- =====================================================
-         NEW NATOK ADD AREA
-         
-         ভবিষ্যতে নতুন নাটক যোগ করতে নিচের JavaScript-এর
-         dramas তালিকায় শুধু একটি নতুন object যোগ করবে।
-         ===================================================== -->
-
-    <div class="add-note">
-
-        <strong>➕ নতুন নাটক যোগ করতে</strong>
-
-        <br><br>
-
-        নিচের JavaScript-এর
-        <b>dramas</b> তালিকায় নতুন নাটকের
-        নাম, YouTube ID এবং ছবি যোগ করলেই হবে।
-
-    </div>
-
-
     <!-- BOTTOM AD -->
+
     <div class="ad-box">
 
         <script async="async"
@@ -321,6 +288,7 @@ body{
 
 
 <!-- FOOTER -->
+
 <footer class="footer">
 
     © 2026 FUNNYMERRAGELIFE
@@ -340,18 +308,10 @@ body{
 <script>
 
 /* ==========================================================
-   🎬 BANGLA NATOK LIST
+   BANGLA NATOK LIST
 
-   নতুন নাটক যোগ করতে নিচের মতো একটি নতুন অংশ যোগ করবে:
-
-   {
-       title: "নতুন নাটকের নাম",
-       id: "YOUTUBE_VIDEO_ID",
-       description: "নাটকের ছোট Description"
-   },
-
+   ভবিষ্যতে নতুন নাটক যোগ করতে এখানে নতুন object যোগ করবে।
    ========================================================== */
-
 
 const dramas = [
 
@@ -364,55 +324,55 @@ const dramas = [
     {
         title: "জাহান্নাম",
         id: "yfDFYmMebQ4",
-        description: "নির্জন নাহুয়েল ও নুসরাত ফাতেমা অভিনীত নতুন বাংলা নাটক। সংঘাত, রহস্য, আবেগ ও ভালোবাসার গল্প।"
+        description: "নতুন বাংলা নাটক। সংঘাত, রহস্য, আবেগ ও ভালোবাসার গল্প।"
     },
 
     {
         title: "এক্স ইক্যুয়ালস টু প্রেম",
         id: "ripZoGxx51M",
-        description: "খায়রুল বাসার, সাদনিমা ও ইরফান রনি অভিনীত রোমান্টিক বাংলা নাটক।"
+        description: "নতুন রোমান্টিক বাংলা নাটক। ভালোবাসা ও সম্পর্কের মজার গল্প।"
     },
 
     {
         title: "আমাদের বিশ্বকাপ",
         id: "fvlwR2zjzJ8",
-        description: "ইরফান সাজ্জাদ ও সুনেরাহ অভিনীত নতুন বাংলা নাটক।"
+        description: "নতুন বাংলা নাটক। বন্ধুত্ব, ভালোবাসা ও ফুটবলকে ঘিরে গল্প।"
     },
 
     {
         title: "একই ছাদের নিচে",
         id: "DTMwar-8a18",
-        description: "আরোশ খান ও জান্নাত জিম অভিনীত নতুন বাংলা নাটক।"
+        description: "সম্পর্ক, পরিবার ও ভালোবাসার গল্প নিয়ে নতুন বাংলা নাটক।"
     },
 
     {
         title: "রংবাজ",
         id: "-YGQUPvjHbo",
-        description: "নির্জন নাহুয়েল ও আরোহী মিম অভিনীত অ্যাকশন ড্রামা।"
+        description: "অ্যাকশন, মজা ও রোমান্সে ভরা নতুন বাংলা নাটক।"
     },
 
     {
         title: "অবশেষে তুমি এলে",
         id: "6UC0aptve_Q",
-        description: "তাওসিফ মাহবুব ও কেয়া পায়েল অভিনীত নতুন রোমান্টিক বাংলা নাটক।"
+        description: "নতুন রোমান্টিক বাংলা নাটক। ভালোবাসার সুন্দর একটি গল্প।"
     },
 
     {
         title: "ঝগড়া হোটেল",
         id: "L-5gWfg9MbU",
-        description: "মোশাররফ করিম ও তানিয়া বৃষ্টির নতুন বাংলা নাটক।"
+        description: "হাসি, মজা ও সম্পর্কের টানাপোড়েন নিয়ে নতুন বাংলা নাটক।"
     },
 
     {
         title: "মাইনকার চিপায়",
         id: "g9GRWSbIFck",
-        description: "মুশফিক আর ফারহান ও কেয়া পায়েল অভিনীত নতুন বাংলা নাটক।"
+        description: "মজার ঘটনা ও রোমান্টিক মুহূর্তে ভরা নতুন বাংলা নাটক।"
     },
 
     {
         title: "বেপরোয়া",
         id: "WseqofclyAI",
-        description: "নির্জন নাহুয়েল ও নুসরাত ফাতেমা অভিনীত নতুন বাংলা নাটক।"
+        description: "রোমান্স, আবেগ ও নাটকীয়তায় ভরা নতুন বাংলা নাটক।"
     }
 
 ];
@@ -443,6 +403,7 @@ function loadDrama(index){
 
     document.getElementById("dramaVideo").src =
         "https://www.youtube.com/embed/" + drama.id + "?rel=0";
+
 
     document.getElementById("counter").innerText =
         "Natok " + (index + 1) + " of " + dramas.length;
