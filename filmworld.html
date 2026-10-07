@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FilmWorld.com | Movies & Series From Around The World</title>
+
+<meta name="description" content="FilmWorld.com - Discover movies, TV series and entertainment from around the world. Browse Hollywood, Bollywood, Korean, Japanese, Chinese, Turkish and more.">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080808;
+    color:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.header{
+    background:linear-gradient(135deg,#111,#1d1205);
+    padding:20px 15px;
+    text-align:center;
+    border-bottom:1px solid #3b2a12;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#f5b400;
+}
+
+.tagline{
+    color:#aaa;
+    font-size:13px;
+    margin-top:6px;
+}
+
+.nav{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:12px;
+    background:#101010;
+    border-bottom:1px solid #222;
+}
+
+.nav a{
+    white-space:nowrap;
+    background:#1c1c1c;
+    padding:9px 14px;
+    border-radius:20px;
+    font-size:13px;
+    color:#ddd;
+}
+
+.nav a:hover{
+    background:#f5b400;
+    color:#000;
+}
+
+.hero{
+    margin:15px;
+    padding:28px 18px;
+    border-radius:16px;
+    background:
+      radial-gradient(circle at top right,#5b3b00 0,#191000 35%,#101010 75%);
+    border:1px solid #33250e;
+}
+
+.hero h1{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#bbb;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.search{
+    padding:15px;
+}
+
+.search input{
+    width:100%;
+    padding:14px 16px;
+    border-radius:25px;
+    border:1px solid #333;
+    background:#151515;
+    color:#fff;
+    outline:none;
+    font-size:14px;
+}
+
+.section{
+    padding:10px 15px 20px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:13px;
+}
+
+.section-title h2{
+    font-size:20px;
+}
+
+.section-title span{
+    color:#f5b400;
+    font-size:12px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.card{
+    background:#131313;
+    border:1px solid #262626;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#f5b400;
+}
+
+.poster{
+    width:100%;
+    aspect-ratio:2/3;
+    object-fit:cover;
+    display:block;
+    background:#222;
+}
+
+.card-body{
+    padding:11px;
+}
+
+.card h3{
+    font-size:15px;
+    margin-bottom:5px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.meta{
+    color:#999;
+    font-size:11px;
+    margin-bottom:10px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+}
+
+.btn{
+    display:block;
+    text-align:center;
+    padding:9px 5px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.watch{
+    background:#f5b400;
+    color:#000;
+}
+
+.download{
+    background:#252525;
+    color:#fff;
+    border:1px solid #444;
+}
+
+.category-box{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+}
+
+.category{
+    padding:17px 10px;
+    background:#151515;
+    border:1px solid #292929;
+    border-radius:10px;
+    text-align:center;
+    font-size:13px;
+}
+
+.category:hover{
+    border-color:#f5b400;
+}
+
+.age{
+    color:#ff6969;
+}
+
+.notice{
+    margin:15px;
+    padding:14px;
+    background:#15110a;
+    border:1px solid #3a2a0c;
+    border-radius:10px;
+    color:#aaa;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.footer{
+    margin-top:20px;
+    padding:25px 15px;
+    text-align:center;
+    background:#101010;
+    border-top:1px solid #222;
+    color:#777;
+    font-size:12px;
+}
+
+.footer strong{
+    color:#f5b400;
+}
+
+@media(min-width:700px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .category-box{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .hero,
+    .section,
+    .search{
+        max-width:1100px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">Film<span>World</span>.com</div>
+    <div class="tagline">Movies • Series • Entertainment • Worldwide</div>
+</header>
+
+<nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#movies">Movies</a>
+    <a href="#series">Series</a>
+    <a href="#countries">Countries</a>
+    <a href="#adult">18+</a>
+</nav>
+
+<section class="hero" id="home">
+    <h1>🌎 Welcome to FilmWorld</h1>
+    <p>
+        Discover movies and series from around the world.
+        Explore Hollywood, Bollywood, Korean, Japanese, Chinese,
+        Turkish, European and international entertainment.
+    </p>
+</section>
+
+<div class="search">
+    <input type="text" id="searchBox" placeholder="🔎 Search movies or series...">
+</div>
+
+<section class="section" id="movies">
+    <div class="section-title">
+        <h2>🔥 Trending Movies</h2>
+        <span>EXPLORE</span>
+    </div>
+
+    <div class="grid" id="movieGrid">
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Movie+01" alt="International Movie">
+            <div class="card-body">
+                <h3>International Movie 01</h3>
+                <div class="meta">2026 • Movie • Worldwide</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Movie+02" alt="Hollywood Movie">
+            <div class="card-body">
+                <h3>Hollywood Movie 02</h3>
+                <div class="meta">2026 • Hollywood • Movie</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Movie+03" alt="Indian Movie">
+            <div class="card-body">
+                <h3>Indian Movie 03</h3>
+                <div class="meta">2026 • India • Movie</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Movie+04" alt="Asian Movie">
+            <div class="card-body">
+                <h3>Asian Movie 04</h3>
+                <div class="meta">2026 • Asia • Movie</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="series">
+    <div class="section-title">
+        <h2>📺 Popular Series</h2>
+        <span>NEW</span>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Series+01" alt="Web Series">
+            <div class="card-body">
+                <h3>Popular Series 01</h3>
+                <div class="meta">Series • Worldwide</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Korean+Series" alt="Korean Series">
+            <div class="card-body">
+                <h3>Korean Series</h3>
+                <div class="meta">K-Drama • Korea</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Turkish+Series" alt="Turkish Series">
+            <div class="card-body">
+                <h3>Turkish Series</h3>
+                <div class="meta">Series • Turkey</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/f5b400?text=Web+Series" alt="Web Series">
+            <div class="card-body">
+                <h3>Web Series 04</h3>
+                <div class="meta">Web Series • International</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="countries">
+    <div class="section-title">
+        <h2>🌎 Browse By Country</h2>
+    </div>
+
+    <div class="category-box">
+        <a class="category" href="#movies">🇺🇸 Hollywood</a>
+        <a class="category" href="#movies">🇮🇳 Bollywood</a>
+        <a class="category" href="#series">🇰🇷 Korean</a>
+        <a class="category" href="#series">🇯🇵 Japanese</a>
+        <a class="category" href="#series">🇨🇳 Chinese</a>
+        <a class="category" href="#series">🇹🇷 Turkish</a>
+        <a class="category" href="#movies">🇪🇸 Spanish</a>
+        <a class="category" href="#movies">🌍 International</a>
+    </div>
+</section>
+
+<section class="section" id="adult">
+    <div class="section-title">
+        <h2>🔞 18+ Movies & Series</h2>
+        <span class="age">18+</span>
+    </div>
+
+    <div class="notice">
+        This section is intended for adults only. Content should be added
+        only from lawful and authorized sources and must comply with the
+        rules of the hosting platform and advertising networks.
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/ff6969?text=18%2B" alt="18 plus movie category">
+            <div class="card-body">
+                <h3>18+ Movie Collection</h3>
+                <div class="meta">Adults Only • Legal Sources</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="poster" src="https://placehold.co/600x900/171717/ff6969?text=18%2B+Series" alt="18 plus series category">
+            <div class="card-body">
+                <h3>18+ Series Collection</h3>
+                <div class="meta">Adults Only • Legal Sources</div>
+                <div class="buttons">
+                    <a class="btn watch" href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16" target="_blank" rel="noopener">▶ Watch Now</a>
+                    <a class="btn download" href="https://omg10.com/4/11914917" target="_blank" rel="noopener">⬇ Download</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="notice">
+    <strong>Important:</strong> FilmWorld.com is designed as an entertainment discovery
+    landing page. Use authorized/legal sources for watching or downloading movies
+    and series. Replace the placeholder posters and buttons with your own lawful
+    content links.
+</div>
+
+<footer class="footer">
+    <p><strong>FilmWorld.com</strong></p>
+    <p>Movies • Series • Worldwide Entertainment</p>
+    <p style="margin-top:8px;">© 2026 FilmWorld.com. All rights reserved.</p>
+</footer>
+
+<script>
+const searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("input", function(){
+    const query = this.value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+        const title = card.querySelector("h3").textContent.toLowerCase();
+
+        if(title.includes(query)){
+            card.style.display = "";
+        }else{
+            card.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+  </html>
