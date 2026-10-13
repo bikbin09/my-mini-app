@@ -6,35 +6,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080808">
 <meta name="description" content="প্রথম প্রেমের গল্প Episode 1, বাংলা নাটক ও ওয়েব সিরিজ দেখুন।">
-<title>প্রথম প্রেমের গল্প Episode 1 | FUNNYMERRAGELIFE</title>
+<title>প্রথম প্রেমের গল্প | FUNNYMERRAGELIFE</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#080808;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
-header{text-align:center;padding:22px 10px;background:#171008;border-bottom:2px solid #ffc64b}
+header{text-align:center;padding:22px 10px;background:linear-gradient(135deg,#211500,#080808);border-bottom:2px solid #ffc64b}
 .logo{color:#ffc64b;font-size:24px;font-weight:900}
 header p{color:#ccc;font-size:13px}
 .container{max-width:800px;margin:auto;padding:14px}
-.hero{text-align:center;padding:25px 5px}
+.hero{text-align:center;padding:24px 5px}
 .hero h1,.section-title{color:#ffc64b}
 .hero h1{font-size:27px}
 .hero p{color:#ccc;font-size:14px;margin-top:7px}
 .categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:15px 0}
-button,.btn{border:0;border-radius:8px;padding:12px;text-align:center;font-weight:bold;cursor:pointer;text-decoration:none;display:block;width:100%;font-size:15px}
+button,.btn{border:0;border-radius:8px;padding:13px;text-align:center;font-weight:bold;cursor:pointer;text-decoration:none;display:block;width:100%;font-size:15px}
 .categories button{width:auto;background:#222;color:#ffc64b;border:1px solid #59421a}
 .card{background:#121212;border:1px solid #493719;border-radius:13px;overflow:hidden;margin:15px 0 22px}
-.poster{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#38250b,#090909);display:flex;align-items:center;justify-content:center;text-align:center;color:#ffc64b;font-size:24px;padding:20px}
+.poster{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#38250b,#090909);display:flex;align-items:center;justify-content:center;text-align:center;color:#ffc64b;font-size:23px;padding:15px}
 .poster img{width:100%;height:100%;object-fit:cover}
-.video{display:block;background:#000}
-.video iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .info{padding:17px}
 .info h2{font-size:22px;color:#ffc64b;margin-bottom:7px}
 .info p{color:#ccc;font-size:14px;margin-bottom:13px}
 .watch{background:#ffc64b;color:#111;margin-top:10px}
-.secondary{background:#222;color:#ffc64b;border:1px solid #59421a;margin-top:9px}
+.youtube{background:#d91f26;color:white;margin-top:10px}
+.secondary{background:#222;color:#ffc64b;border:1px solid #59421a;margin-top:10px}
 .ad-box{text-align:center;overflow:hidden;margin:20px 0}
-.small{color:#888;font-size:12px}
+.ad-label{font-size:11px;color:#888;margin-bottom:5px}
+.small{color:#888;font-size:12px;margin-top:12px}
 footer{text-align:center;padding:24px;color:#888;font-size:12px}
+
+/* Advertisement confirmation */
+.ad-overlay{
+  display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.96);padding:22px;
+  align-items:center;justify-content:center
+}
+.ad-panel{
+  width:100%;max-width:400px;text-align:center;
+  background:#151515;border:1px solid #64491b;
+  border-radius:15px;padding:23px
+}
+.ad-panel h2{color:#ffc64b;font-size:23px;margin-bottom:10px}
+.ad-panel p{color:#ddd;font-size:14px;margin-bottom:15px}
+.close-btn{background:#ffc64b;color:#111;margin-top:12px}
+.cancel-btn{background:#292929;color:#fff;margin-top:9px}
 </style>
 </head>
 
@@ -47,18 +63,19 @@ footer{text-align:center;padding:24px;color:#888;font-size:12px}
 <main class="container">
   <section class="hero">
     <h1>❤️ প্রথম প্রেমের গল্প</h1>
-    <p>Episode 1 — নতুন বাংলা সিরিজ</p>
+    <p>নতুন বাংলা নাটক ও সিরিজ দেখুন</p>
   </section>
 
   <nav class="categories">
-    <button onclick="render('all')">সব শো</button>
-    <button onclick="render('natok')">বাংলা নাটক</button>
-    <button onclick="render('series')">ওয়েব সিরিজ</button>
-    <button onclick="render('india')">ভারতীয় বাংলা</button>
+    <button type="button" onclick="render('all')">সব শো</button>
+    <button type="button" onclick="render('natok')">বাংলা নাটক</button>
+    <button type="button" onclick="render('series')">ওয়েব সিরিজ</button>
+    <button type="button" onclick="render('india')">ভারতীয় বাংলা</button>
   </nav>
 
-  <!-- Adsterra Native Banner -->
+  <!-- ADSTERRA NATIVE BANNER -->
   <div class="ad-box">
+    <div class="ad-label">Advertisement</div>
     <script async="async" data-cfasync="false"
       src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
     <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
@@ -67,101 +84,189 @@ footer{text-align:center;padding:24px;color:#888;font-size:12px}
   <h2 class="section-title">🔥 জনপ্রিয় নাটক ও সিরিজ</h2>
   <div id="showList"></div>
 
-  <p class="small">ভিডিওর প্রাপ্যতা মূল ভিডিও প্রকাশকের ওপর নির্ভরশীল।</p>
+  <!-- MONETAG DIRECT LINK -->
+  <div class="ad-box">
+    <div class="ad-label">Sponsored</div>
+    <a class="btn watch"
+       href="https://omg10.com/4/11914917"
+       target="_blank"
+       rel="nofollow sponsored noopener">
+      🎁 Discover More Entertainment
+    </a>
+  </div>
+
+  <!-- ADSTERRA SMARTLINK -->
+  <div class="ad-box">
+    <div class="ad-label">Sponsored</div>
+    <a class="btn secondary"
+       href="https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16"
+       target="_blank"
+       rel="nofollow sponsored noopener">
+      ✨ Explore More
+    </a>
+  </div>
+
+  <p class="small">
+    ভিডিওর প্রাপ্যতা YouTube ও মূল প্রকাশকের ওপর নির্ভরশীল।
+    বিজ্ঞাপন ঐচ্ছিকভাবে খুলবে; বিজ্ঞাপন দেখা হয়েছে কি না, এই পেজ তা যাচাই করতে পারে না।
+  </p>
 </main>
 
 <footer>© 2026 FUNNYMERRAGELIFE</footer>
 
+<!-- AD GATE -->
+<div class="ad-overlay" id="adOverlay" role="dialog" aria-modal="true"
+     aria-labelledby="adHeading">
+  <div class="ad-panel">
+    <h2 id="adHeading">📢 Advertisement</h2>
+    <p>
+      বিজ্ঞাপনের লিংক নতুন ট্যাবে খোলার চেষ্টা করা হবে।
+      ফিরে এসে নিচের বাটনে চাপ দিলে YouTube ভিডিও খুলবে।
+    </p>
+
+    <button type="button" class="close-btn" id="continueBtn">
+      ▶ Continue to YouTube
+    </button>
+
+    <button type="button" class="cancel-btn" id="cancelBtn">
+      Close
+    </button>
+  </div>
+</div>
+
 <script>
+"use strict";
+
+const MONETAG_LINK = "https://omg10.com/4/11914917";
+const ADSTERRA_LINK = "https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16";
+
 const shows = [
   {
     title:"প্রথম প্রেমের গল্প — Episode 1",
     category:"natok",
-    description:"নিলয় আলমগীরের প্রথম প্রেমের গল্পের প্রথম পর্ব। ভিডিওটি সরাসরি এই পেজে দেখুন।",
-    videoId:"YHo9kG4ssbc"
+    description:"নিলয় আলমগীরের প্রথম প্রেমের গল্পের প্রথম পর্ব।",
+    videoId:"YHo9kG4ssbc",
+    adLink:MONETAG_LINK
   },
   {
     title:"শাখা প্রশাখা",
     category:"india",
     description:"ভারতীয় বাংলা রহস্য ও পারিবারিক গল্পের সিরিজ।",
-    videoId:"cm_jGXXRtQo"
+    videoId:"cm_jGXXRtQo",
+    adLink:ADSTERRA_LINK
   },
   {
     title:"কর্মা ক্লিনিক",
     category:"india",
     description:"ভাগ্য ও কর্মফল নিয়ে বাংলা সিরিজ।",
-    videoId:"4gSvd_GHBoo"
+    videoId:"4gSvd_GHBoo",
+    adLink:MONETAG_LINK
   },
   {
     title:"Cancel Me Not",
     category:"india",
     description:"বাংলা বিনোদন সিরিজের একটি পর্ব।",
-    videoId:"1dfXqR-Hc6M"
+    videoId:"1dfXqR-Hc6M",
+    adLink:ADSTERRA_LINK
   }
 ];
 
-function render(category="all"){
-  const list=document.getElementById("showList");
-  list.replaceChildren();
+let selectedShow = null;
+const overlay = document.getElementById("adOverlay");
 
-  shows.filter(s=>category==="all"||s.category===category).forEach(s=>{
-    const card=document.createElement("article");
-    card.className="card";
+function openAdThenVideo(show){
+  selectedShow = show;
 
-    const poster=document.createElement("div");
-    poster.className="poster";
+  /*
+    Open the ad destination directly from the user's click.
+    Popup blockers may prevent opening a new tab.
+  */
+  const adTab = window.open(show.adLink, "_blank", "noopener");
 
-    const img=document.createElement("img");
-    img.src="https://img.youtube.com/vi/"+s.videoId+"/hqdefault.jpg";
-    img.alt=s.title+" thumbnail";
-    img.loading="lazy";
-    img.onerror=()=>{img.remove();poster.textContent="🎬 "+s.title};
-    poster.appendChild(img);
+  overlay.style.display = "flex";
 
-    const video=document.createElement("div");
-    video.className="video";
-
-    const frame=document.createElement("iframe");
-    frame.src="https://www.youtube-nocookie.com/embed/"+s.videoId;
-    frame.title=s.title;
-    frame.loading="lazy";
-    frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-    frame.referrerPolicy="strict-origin-when-cross-origin";
-    frame.allowFullscreen=true;
-    video.appendChild(frame);
-
-    const info=document.createElement("div");
-    info.className="info";
-
-    const title=document.createElement("h2");
-    title.textContent=s.title;
-
-    const desc=document.createElement("p");
-    desc.textContent=s.description;
-
-    const watch=document.createElement("a");
-    watch.className="btn watch";
-    watch.textContent="▶️ YouTube-এ দেখুন";
-    watch.href="https://www.youtube.com/watch?v="+s.videoId;
-    watch.target="_blank";
-    watch.rel="noopener noreferrer";
-
-    info.append(title,desc,watch);
-    card.append(poster,video,info);
-    list.appendChild(card);
-  });
+  if(!adTab){
+    document.getElementById("adHeading").textContent =
+      "Continue to YouTube";
+    document.querySelector(".ad-panel p").textContent =
+      "ব্রাউজার বিজ্ঞাপনের নতুন ট্যাব আটকাতে পারে। YouTube-এ যেতে নিচের বাটনে চাপ দিন।";
+  }else{
+    document.getElementById("adHeading").textContent =
+      "Advertisement";
+    document.querySelector(".ad-panel p").textContent =
+      "বিজ্ঞাপনের ট্যাবটি চাইলে দেখে বন্ধ করে এখানে ফিরে আসুন। তারপর Continue to YouTube চাপুন।";
+  }
 }
 
-document.querySelectorAll("[data-filter]").forEach(button=>{
-  button.addEventListener("click",()=>render(button.dataset.filter));
+document.getElementById("continueBtn").addEventListener("click",()=>{
+  if(!selectedShow) return;
+
+  const destination =
+    "https://www.youtube.com/watch?v="+
+    encodeURIComponent(selectedShow.videoId);
+
+  overlay.style.display = "none";
+  window.location.href = destination;
 });
 
-document.querySelectorAll(".categories button").forEach((button,index)=>{
-  button.addEventListener("click",()=>{
-    render(["all","natok","series","india"][index]);
-    document.querySelector(".section-title").scrollIntoView({behavior:"smooth"});
-  });
+document.getElementById("cancelBtn").addEventListener("click",()=>{
+  overlay.style.display = "none";
 });
+
+function render(category="all"){
+  const list = document.getElementById("showList");
+  list.replaceChildren();
+
+  shows
+    .filter(show=>category==="all"||show.category===category)
+    .forEach(show=>{
+      const card = document.createElement("article");
+      card.className = "card";
+
+      const poster = document.createElement("div");
+      poster.className = "poster";
+
+      const img = document.createElement("img");
+      img.src = "https://img.youtube.com/vi/"+
+        encodeURIComponent(show.videoId)+"/hqdefault.jpg";
+      img.alt = show.title+" thumbnail";
+      img.loading = "lazy";
+      img.onerror = ()=>{
+        img.remove();
+        poster.textContent = "🎬 "+show.title;
+      };
+      poster.appendChild(img);
+
+      const info = document.createElement("div");
+      info.className = "info";
+
+      const title = document.createElement("h2");
+      title.textContent = show.title;
+
+      const description = document.createElement("p");
+      description.textContent = show.description;
+
+      const playButton = document.createElement("button");
+      playButton.type = "button";
+      playButton.className = "btn watch";
+      playButton.textContent = "▶️ প্রথমে বিজ্ঞাপন, তারপর ভিডিও";
+      playButton.addEventListener("click",()=>{
+        openAdThenVideo(show);
+      });
+
+      const youtubeButton = document.createElement("button");
+      youtubeButton.type = "button";
+      youtubeButton.className = "btn youtube";
+      youtubeButton.textContent = "▶ YouTube-এ দেখুন";
+      youtubeButton.addEventListener("click",()=>{
+        openAdThenVideo(show);
+      });
+
+      info.append(title,description,playButton,youtubeButton);
+      card.append(poster,info);
+      list.appendChild(card);
+    });
+}
 
 render("all");
 </script>
