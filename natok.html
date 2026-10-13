@@ -1,841 +1,169 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Indian Bengali Shows | FUNNYMERRAGELIFE</title>
-
-<meta name="description" content="Discover Indian Bengali movies, web series, dramas, trailers and entertainment on FUNNYMERRAGELIFE.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="প্রথম প্রেমের গল্প Episode 1, বাংলা নাটক ও ওয়েব সিরিজ দেখুন।">
+<title>প্রথম প্রেমের গল্প Episode 1 | FUNNYMERRAGELIFE</title>
 
 <style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#080808;
-  color:#fff;
-  line-height:1.6;
-}
-
-/* HEADER */
-
-.header{
-  background:linear-gradient(135deg,#111,#1d1200);
-  padding:18px 12px;
-  text-align:center;
-  border-bottom:1px solid #d89b28;
-}
-
-.logo{
-  font-size:27px;
-  font-weight:900;
-  color:#f5b83d;
-  letter-spacing:1px;
-}
-
-.header p{
-  color:#ccc;
-  font-size:13px;
-  margin-top:3px;
-}
-
-/* CONTAINER */
-
-.container{
-  max-width:760px;
-  margin:auto;
-  padding:15px;
-}
-
-/* HERO */
-
-.hero{
-  text-align:center;
-  padding:20px 10px;
-}
-
-.hero h1{
-  color:#f5b83d;
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  color:#ccc;
-  font-size:14px;
-}
-
-/* ADS */
-
-.ad-box{
-  margin:15px 0;
-  text-align:center;
-  overflow:hidden;
-}
-
-/* TITLE */
-
-.section-title{
-  text-align:center;
-  color:#f5b83d;
-  font-size:21px;
-  margin:20px 0 15px;
-}
-
-/* SHOW CARD */
-
-.show-card{
-  background:linear-gradient(145deg,#151515,#0d0d0d);
-  border:1px solid #3b2b12;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,.6);
-}
-
-/* POSTER */
-
-.poster-box{
-  width:100%;
-  min-height:330px;
-  background:linear-gradient(135deg,#201600,#080808);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-}
-
-.poster-box img{
-  width:100%;
-  max-height:430px;
-  object-fit:cover;
-  display:none;
-}
-
-.poster-inner{
-  width:100%;
-  min-height:330px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:30px 20px;
-  background:
-  radial-gradient(
-    circle at center,
-    #4b310b 0%,
-    #171007 45%,
-    #080808 80%
-  );
-}
-
-.poster-inner .icon{
-  font-size:65px;
-  margin-bottom:12px;
-}
-
-.poster-inner h3{
-  color:#f5b83d;
-  font-size:25px;
-  margin-bottom:8px;
-}
-
-.poster-inner p{
-  color:#bbb;
-  font-size:13px;
-}
-
-/* VIDEO */
-
-.video-box{
-  width:100%;
-  display:none;
-  background:#000;
-}
-
-.video-box iframe{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-}
-
-/* CONTENT */
-
-.show-content{
-  padding:20px;
-  text-align:center;
-}
-
-.show-content h2{
-  color:#f5b83d;
-  font-size:25px;
-  margin-bottom:10px;
-}
-
-.show-content p{
-  color:#ccc;
-  font-size:14px;
-  margin-bottom:18px;
-}
-
-/* BUTTONS */
-
-button{
-  border:none;
-  width:100%;
-  padding:14px;
-  border-radius:9px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:10px;
-}
-
-.play-btn{
-  background:linear-gradient(135deg,#f5b83d,#c78312);
-  color:#111;
-}
-
-.next-btn{
-  background:#242424;
-  color:#f5b83d;
-  border:1px solid #5a4219;
-}
-
-.counter{
-  margin-top:14px;
-  color:#888;
-  font-size:13px;
-}
-
-/* FOOTER */
-
-footer{
-  text-align:center;
-  color:#777;
-  padding:25px 10px;
-  font-size:12px;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .container{
-    padding:10px;
-  }
-
-  .hero h1{
-    font-size:24px;
-  }
-
-  .poster-box{
-    min-height:280px;
-  }
-
-  .poster-inner{
-    min-height:280px;
-  }
-
-  .show-content h2{
-    font-size:22px;
-  }
-
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080808;color:#fff;font-family:Arial,sans-serif;line-height:1.6}
+header{text-align:center;padding:22px 10px;background:#171008;border-bottom:2px solid #ffc64b}
+.logo{color:#ffc64b;font-size:24px;font-weight:900}
+header p{color:#ccc;font-size:13px}
+.container{max-width:800px;margin:auto;padding:14px}
+.hero{text-align:center;padding:25px 5px}
+.hero h1,.section-title{color:#ffc64b}
+.hero h1{font-size:27px}
+.hero p{color:#ccc;font-size:14px;margin-top:7px}
+.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:15px 0}
+button,.btn{border:0;border-radius:8px;padding:12px;text-align:center;font-weight:bold;cursor:pointer;text-decoration:none;display:block;width:100%;font-size:15px}
+.categories button{width:auto;background:#222;color:#ffc64b;border:1px solid #59421a}
+.card{background:#121212;border:1px solid #493719;border-radius:13px;overflow:hidden;margin:15px 0 22px}
+.poster{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#38250b,#090909);display:flex;align-items:center;justify-content:center;text-align:center;color:#ffc64b;font-size:24px;padding:20px}
+.poster img{width:100%;height:100%;object-fit:cover}
+.video{display:block;background:#000}
+.video iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.info{padding:17px}
+.info h2{font-size:22px;color:#ffc64b;margin-bottom:7px}
+.info p{color:#ccc;font-size:14px;margin-bottom:13px}
+.watch{background:#ffc64b;color:#111;margin-top:10px}
+.secondary{background:#222;color:#ffc64b;border:1px solid #59421a;margin-top:9px}
+.ad-box{text-align:center;overflow:hidden;margin:20px 0}
+.small{color:#888;font-size:12px}
+footer{text-align:center;padding:24px;color:#888;font-size:12px}
 </style>
-
 </head>
 
 <body>
-
-
-<!-- HEADER -->
-
-<header class="header">
-
-  <div class="logo">
-    FUNNYMERRAGELIFE
-  </div>
-
-  <p>
-    Indian Bengali Shows & Entertainment
-  </p>
-
+<header>
+  <div class="logo">🎬 FUNNYMERRAGELIFE</div>
+  <p>বাংলা নাটক • ওয়েব সিরিজ • বিনোদন</p>
 </header>
 
+<main class="container">
+  <section class="hero">
+    <h1>❤️ প্রথম প্রেমের গল্প</h1>
+    <p>Episode 1 — নতুন বাংলা সিরিজ</p>
+  </section>
 
-<div class="container">
+  <nav class="categories">
+    <button onclick="render('all')">সব শো</button>
+    <button onclick="render('natok')">বাংলা নাটক</button>
+    <button onclick="render('series')">ওয়েব সিরিজ</button>
+    <button onclick="render('india')">ভারতীয় বাংলা</button>
+  </nav>
 
-
-<!-- HERO -->
-
-<section class="hero">
-
-  <h1>
-    🎬 Indian Bengali Shows
-  </h1>
-
-  <p>
-    Discover popular Bengali movies, web series,
-    dramas, trailers and entertainment.
-  </p>
-
-</section>
-
-
-<!-- =========================
-     ADSTERRA NATIVE BANNER
-========================= -->
-
-<div class="ad-box">
-
-<script async="async"
-data-cfasync="false"
-src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
-</script>
-
-<div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
-
-</div>
-
-
-<!-- SECTION TITLE -->
-
-<h2 class="section-title">
-  🔥 Latest Indian Bengali Shows
-</h2>
-
-
-<!-- SHOW CARD -->
-
-<div class="show-card">
-
-
-  <!-- POSTER -->
-
-  <div id="posterArea" class="poster-box">
-
-    <img
-      id="posterImage"
-      src=""
-      alt="Indian Bengali Show Thumbnail"
-    >
-
-    <div
-      class="poster-inner"
-      id="posterFallback"
-    >
-
-      <div class="icon">
-        🎬
-      </div>
-
-      <h3 id="fallbackTitle">
-        Indian Bengali Show
-      </h3>
-
-      <p>
-        Watch the latest episode and discover more.
-      </p>
-
-    </div>
-
+  <!-- Adsterra Native Banner -->
+  <div class="ad-box">
+    <script async="async" data-cfasync="false"
+      src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js"></script>
+    <div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
   </div>
 
+  <h2 class="section-title">🔥 জনপ্রিয় নাটক ও সিরিজ</h2>
+  <div id="showList"></div>
 
-  <!-- VIDEO -->
+  <p class="small">ভিডিওর প্রাপ্যতা মূল ভিডিও প্রকাশকের ওপর নির্ভরশীল।</p>
+</main>
 
-  <div
-    id="videoBox"
-    class="video-box"
-  >
-
-    <iframe
-      id="videoFrame"
-      src=""
-      title="Indian Bengali Show Video"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
-
-  </div>
-
-
-  <!-- SHOW INFORMATION -->
-
-  <div class="show-content">
-
-    <h2 id="showTitle">
-      Shakha Proshakha
-    </h2>
-
-    <p id="showDescription">
-      Watch Indian Bengali entertainment and discover popular shows.
-    </p>
-
-
-    <!-- WATCH BUTTON -->
-
-    <button
-      id="playButton"
-      class="play-btn"
-      onclick="watchShow()">
-
-      ▶️ WATCH NOW
-
-    </button>
-
-
-    <!-- NEXT BUTTON -->
-
-    <button
-      class="next-btn"
-      onclick="nextShow()">
-
-      ⏭️ NEXT SHOW
-
-    </button>
-
-
-    <!-- COUNTER -->
-
-    <div
-      id="counter"
-      class="counter">
-
-      Show 1 of 10
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- =========================
-     SECOND ADSTERRA NATIVE BANNER
-========================= -->
-
-<div class="ad-box">
-
-<script async="async"
-data-cfasync="false"
-src="https://pl31484412.profitableratecpmnetwork.com/74d6c65f6655583e39d66aff51f97c30/invoke.js">
-</script>
-
-<div id="container-74d6c65f6655583e39d66aff51f97c30"></div>
-
-</div>
-
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-  © 2026 FUNNYMERRAGELIFE
-  — Indian Bengali Entertainment
-
-</footer>
-
+<footer>© 2026 FUNNYMERRAGELIFE</footer>
 
 <script>
-
-/* =====================================
-   ADSTERRA SMARTLINK
-===================================== */
-
-const SMARTLINK =
-"https://www.profitableratecpmnetwork.com/c096fxkh3?key=f9977391ed793a6bb843655c43eb6c16";
-
-
-/* =====================================
-   SHOW DATA
-===================================== */
-
 const shows = [
-
-  /* 1 */
-
   {
-    title:"Shakha Proshakha",
-
-    description:
-    "Watch Shakha Proshakha Episode 1 and discover a gripping Bengali story filled with family drama and mystery.",
-
-    video:
-    "https://www.youtube.com/embed/cm_jGXXRtQo?si=XU5f8dVbYWpM2rSR",
-
-    thumbnail:
-    "https://img.youtube.com/vi/cm_jGXXRtQo/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/shows/shakha-proshakha"
+    title:"প্রথম প্রেমের গল্প — Episode 1",
+    category:"natok",
+    description:"নিলয় আলমগীরের প্রথম প্রেমের গল্পের প্রথম পর্ব। ভিডিওটি সরাসরি এই পেজে দেখুন।",
+    videoId:"YHo9kG4ssbc"
   },
-
-
-  /* 2 */
-
   {
-    title:"Karma Clinic",
-
-    description:
-    "Watch Karma Clinic Episode 1 and explore astrology, numerology, vastu and the mysteries behind life's unexplained struggles.",
-
-    video:
-    "https://www.youtube.com/embed/4gSvd_GHBoo?si=kh3A76V-pjriebEX",
-
-    thumbnail:
-    "https://img.youtube.com/vi/4gSvd_GHBoo/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/"
+    title:"শাখা প্রশাখা",
+    category:"india",
+    description:"ভারতীয় বাংলা রহস্য ও পারিবারিক গল্পের সিরিজ।",
+    videoId:"cm_jGXXRtQo"
   },
-
-
-  /* 3 */
-
+  {
+    title:"কর্মা ক্লিনিক",
+    category:"india",
+    description:"ভাগ্য ও কর্মফল নিয়ে বাংলা সিরিজ।",
+    videoId:"4gSvd_GHBoo"
+  },
   {
     title:"Cancel Me Not",
-
-    description:
-    "Watch Cancel Me Not Episode 1 and discover another exciting Bengali entertainment series.",
-
-    video:
-    "https://www.youtube.com/embed/1dfXqR-Hc6M?si=QkXpXdbxgt0NRM5i",
-
-    thumbnail:
-    "https://img.youtube.com/vi/1dfXqR-Hc6M/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/"
-  },
-
-
-  /* 4 */
-
-  {
-    title:"Ajeya: Special Task Force",
-
-    description:
-    "ACP Damini Sengupta and her fearless squad investigate a shocking murder inside a government hospital and uncover a dangerous conspiracy.",
-
-    video:
-    "https://www.youtube.com/embed/UN4UOgSGaPk",
-
-    thumbnail:
-    "https://img.youtube.com/vi/UN4UOgSGaPk/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/shows/ajeya-special-task-force"
-  },
-
-
-  /* 5 */
-
-  {
-    title:"Advocate Achinta Aich",
-
-    description:
-    "A gripping Bengali courtroom mystery following advocate Achinta Aich as he takes on a complicated murder case.",
-
-    video:
-    "https://www.youtube.com/embed/JAzBOLsuQHs",
-
-    thumbnail:
-    "https://img.youtube.com/vi/JAzBOLsuQHs/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/shows/advocate-achinta-aich"
-  },
-
-
-  /* 6 */
-
-  {
-    title:"Choddobeshi",
-
-    description:
-    "Detective Aditya Majumdar investigates a mysterious case involving a legendary actress and a family hiding dangerous secrets.",
-
-    video:
-    "https://www.youtube.com/embed/bd-VZcmWNFY",
-
-    thumbnail:
-    "https://img.youtube.com/vi/bd-VZcmWNFY/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/"
-  },
-
-
-  /* 7 */
-
-  {
-    title:"Birangana",
-
-    description:
-    "SI Chitra Basu investigates a series of mysterious deaths and tries to uncover the truth behind a terrifying serial killer.",
-
-    video:
-    "https://www.youtube.com/embed/DXuhUMHZukE",
-
-    thumbnail:
-    "https://img.youtube.com/vi/DXuhUMHZukE/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/"
-  },
-
-
-  /* 8 */
-
-  {
-    title:"Debipokkho",
-
-    description:
-    "Ishani returns to the Sheel mansion where a sacred golden tongue goes missing, leading to a mysterious murder and hidden family secrets.",
-
-    video:
-    "https://www.youtube.com/embed/MQlXpT5T-GM",
-
-    thumbnail:
-    "https://img.youtube.com/vi/MQlXpT5T-GM/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/series/debipokkho"
-  },
-
-
-  /* 9 */
-
-  {
-    title:"Puratawn",
-
-    description:
-    "An emotional Bengali story about memories, family relationships, the past and the journey toward reconciliation.",
-
-    video:
-    "https://www.youtube.com/embed/5FUiizolXRk",
-
-    thumbnail:
-    "https://img.youtube.com/vi/5FUiizolXRk/maxresdefault.jpg",
-
-    watch:
-    "https://hoichoi.tv/movie/puratawn"
-  },
-
-
-  /* 10 */
-
-  {
-    title:"Aajo Ardhangini",
-
-    description:
-    "A Bengali family drama about love, marriage, relationships and the return of a past love.",
-
-    video:"",
-
-    thumbnail:"",
-
-    watch:
-    "https://hoichoi.tv/movies/aajo-ardhangini"
+    category:"india",
+    description:"বাংলা বিনোদন সিরিজের একটি পর্ব।",
+    videoId:"1dfXqR-Hc6M"
   }
-
 ];
 
-
-let currentShow = 0;
-
-
-/* =====================================
-   LOAD SHOW
-===================================== */
-
-function loadShow(index){
-
-  const show = shows[index];
-
-
-  /* TITLE */
-
-  document.getElementById("showTitle").textContent =
-    show.title;
-
-
-  /* DESCRIPTION */
-
-  document.getElementById("showDescription").textContent =
-    show.description;
-
-
-  /* COUNTER */
-
-  document.getElementById("counter").textContent =
-    "Show " +
-    (index + 1) +
-    " of " +
-    shows.length;
-
-
-  /* POSTER */
-
-  const posterImage =
-    document.getElementById("posterImage");
-
-  const posterFallback =
-    document.getElementById("posterFallback");
-
-  const fallbackTitle =
-    document.getElementById("fallbackTitle");
-
-
-  fallbackTitle.textContent =
-    show.title;
-
-
-  if(show.thumbnail){
-
-    posterImage.src =
-      show.thumbnail;
-
-    posterImage.style.display =
-      "block";
-
-    posterFallback.style.display =
-      "none";
-
-  }else{
-
-    posterImage.src =
-      "";
-
-    posterImage.style.display =
-      "none";
-
-    posterFallback.style.display =
-      "flex";
-
-  }
-
-
-  /* VIDEO */
-
-  const videoBox =
-    document.getElementById("videoBox");
-
-  const videoFrame =
-    document.getElementById("videoFrame");
-
-
-  if(show.video){
-
-    videoFrame.src =
-      show.video;
-
-    videoBox.style.display =
-      "block";
-
-  }else{
-
-    videoFrame.src =
-      "";
-
-    videoBox.style.display =
-      "none";
-
-  }
-
-}
-
-
-/* =====================================
-   WATCH NOW
-===================================== */
-
-function watchShow(){
-
-  const show =
-    shows[currentShow];
-
-
-  /* OPEN ADSTERRA SMARTLINK */
-
-  window.open(
-    SMARTLINK,
-    "_blank"
-  );
-
-
-  /* OPEN SHOW PAGE */
-
-  setTimeout(function(){
-
-    window.open(
-      show.watch,
-      "_blank"
-    );
-
-  },800);
-
-}
-
-
-/* =====================================
-   NEXT SHOW
-===================================== */
-
-function nextShow(){
-
-  currentShow++;
-
-
-  if(currentShow >= shows.length){
-
-    currentShow = 0;
-
-  }
-
-
-  loadShow(
-    currentShow
-  );
-
-
-  window.scrollTo({
-
-    top:0,
-
-    behavior:"smooth"
-
+function render(category="all"){
+  const list=document.getElementById("showList");
+  list.replaceChildren();
+
+  shows.filter(s=>category==="all"||s.category===category).forEach(s=>{
+    const card=document.createElement("article");
+    card.className="card";
+
+    const poster=document.createElement("div");
+    poster.className="poster";
+
+    const img=document.createElement("img");
+    img.src="https://img.youtube.com/vi/"+s.videoId+"/hqdefault.jpg";
+    img.alt=s.title+" thumbnail";
+    img.loading="lazy";
+    img.onerror=()=>{img.remove();poster.textContent="🎬 "+s.title};
+    poster.appendChild(img);
+
+    const video=document.createElement("div");
+    video.className="video";
+
+    const frame=document.createElement("iframe");
+    frame.src="https://www.youtube-nocookie.com/embed/"+s.videoId;
+    frame.title=s.title;
+    frame.loading="lazy";
+    frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    frame.referrerPolicy="strict-origin-when-cross-origin";
+    frame.allowFullscreen=true;
+    video.appendChild(frame);
+
+    const info=document.createElement("div");
+    info.className="info";
+
+    const title=document.createElement("h2");
+    title.textContent=s.title;
+
+    const desc=document.createElement("p");
+    desc.textContent=s.description;
+
+    const watch=document.createElement("a");
+    watch.className="btn watch";
+    watch.textContent="▶️ YouTube-এ দেখুন";
+    watch.href="https://www.youtube.com/watch?v="+s.videoId;
+    watch.target="_blank";
+    watch.rel="noopener noreferrer";
+
+    info.append(title,desc,watch);
+    card.append(poster,video,info);
+    list.appendChild(card);
   });
-
 }
 
+document.querySelectorAll("[data-filter]").forEach(button=>{
+  button.addEventListener("click",()=>render(button.dataset.filter));
+});
 
-/* =====================================
-   START
-===================================== */
+document.querySelectorAll(".categories button").forEach((button,index)=>{
+  button.addEventListener("click",()=>{
+    render(["all","natok","series","india"][index]);
+    document.querySelector(".section-title").scrollIntoView({behavior:"smooth"});
+  });
+});
 
-loadShow(
-  currentShow
-);
-
+render("all");
 </script>
-
 </body>
 </html>
